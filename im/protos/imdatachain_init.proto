@@ -1,0 +1,40 @@
+//指定版本
+//注意proto3与proto2的写法有些不同
+//protobuf官方中文文档
+//https://www.jianshu.com/p/4443c28d4bf7
+syntax = "proto3";
+
+//包名，通过protoc生成时go文件时
+package go_protos;
+
+option go_package = "./go_protos";
+
+import "imdatachain_proxybase.proto";
+import "userinfo.proto";
+
+message FirendListInit {
+  ImProxyBase              Base                     =1;    //
+  uint64                   Version                  =2;    //版本号
+  uint64                   PreVersion               =3;    //前置版本号
+  bytes                    FirendAddrsMerkleRoot    =4;    //好友地址默克尔hash
+  repeated bytes           FirendAddrs              =5;    //好友地址
+  repeated UserInfo        UserList                 =6;    //好友信息
+  bytes                    GroupIDsMerkleRoot       =7;    //群id默克尔hash
+  repeated bytes           GroupIDs                 =8;    //群id
+  repeated uint64          GroupVersions            =9;    //群版本号
+  repeated GroupMember     GroupMembers             =10;   //群成员信息
+  bytes                    Sign                     =11;   //签名
+}
+
+message GroupMember {
+  bytes                GroupID                  =1;    //群id
+  uint64               Version                  =2;    //版本号
+  uint64               PreVersion               =3;    //前置版本号
+  bytes                AdminAddr                =4;    //管理员地址
+  bytes                MemberAddrsMerkleRoot    =5;    //好友地址默克尔hash
+  repeated bytes       MemberAddrs              =6;    //成员地址
+  bytes                GroupIDsMerkleRoot       =7;    //群id默克尔hash
+  repeated UserInfo    UserList                 =8;    //成员信息，包括管理员
+  bytes                Sign                     =9;    //签名
+  uint64               Status                   =12;   //群状态。1=正常;2=普通成员禁言;3=解散;
+}

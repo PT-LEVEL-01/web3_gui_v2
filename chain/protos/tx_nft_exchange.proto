@@ -1,0 +1,21 @@
+//指定版本
+//注意proto3与proto2的写法有些不同
+//protobuf官方中文文档
+//https://www.jianshu.com/p/4443c28d4bf7
+syntax = "proto3";
+
+//包名，通过protoc生成时go文件时
+package go_protos;
+
+option go_package = "./go_protos";
+
+import "txbase.proto";
+
+message TxNFTExchange {
+	TxBase         TxBase                 = 1;
+	bytes          NFT_ID_Sponsor         = 2;
+	bytes          NFT_ID_Recipient       = 3; //拥有者
+    bytes          NFT_Recipient_addr     = 4; //名称
+    bytes          NFT_Recipient_puk      = 5; //单位
+    bytes          NFT_Recipient_sign     = 6; //URI外部资源
+}

@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+package go_protos;
+
+option go_package = "./go_protos";
+
+message ContractSnapshot {
+  ContractSnapshotInfo Origin = 1;
+  ContractSnapshotInfo Current = 2;
+  uint64 BlockHeight = 3;
+  map<string, bool> Contracts = 4;
+  map<string, bool> DestructContracts = 5;
+}
+
+message ContractSnapshotInfo {
+  uint64 BlockHeight = 1;
+  repeated bytes ContractAccountList = 2;
+  map<string, bytes> ContractAccountData = 3;
+  map<string, bool> DestructSet = 4;
+}

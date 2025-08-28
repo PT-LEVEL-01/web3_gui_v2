@@ -1,0 +1,56 @@
+//指定版本
+//注意proto3与proto2的写法有些不同
+//protobuf官方中文文档
+//https://www.jianshu.com/p/4443c28d4bf7
+syntax = "proto3";
+
+//包名，通过protoc生成时go文件时
+package go_protos;
+
+option go_package = "./go_protos";
+
+import "txbase.proto";
+
+//新订单
+message TxTokenNewOrder {
+  TxBase   TxBase = 1;
+  bytes TokenAID = 2;//代币A ID
+  bytes TokenAAmount = 3; //代币A金额
+  bytes TokenBID = 4;//代币B ID
+  bytes TokenBAmount = 5; //代币B金额
+  Vin TokenVin = 6;//持有者签名
+  double Price = 7; //价格
+  bool Buy = 8; //买=true;卖=false
+}
+
+//撮合订单
+message TxTokenSwapOrder {
+  TxBase   TxBase = 1;
+  bytes OrderID1       = 2; //买订单ID
+  bytes OrderID2      = 3; //卖订单ID
+  bytes TokenAAmount  = 4; //买单成交量=amount*price1
+  bytes TokenBAmount = 5; //卖单成交量=amount*price
+}
+
+//取消订单
+message TxTokenCancelOrder {
+  TxBase   TxBase = 1;
+  Vin TokenVin = 2;//订单拥有者签名
+  repeated bytes  OrderIds = 3;//订单Id
+}
+
+// 订单信息
+message OrderInfo {
+  bytes   OrderId = 1;//订单Id
+  bytes   TokenAID = 2; //代币ID
+  bytes  TokenAAmount = 3; //代币金额
+  bytes   TokenBID = 4; //代币ID
+  bytes  TokenBAmount = 5; //代币金额
+  bytes  Address = 6; //代币地址
+  bool Buy = 7; //买=true;卖=false
+  int32 state = 8;//订单状态
+  double Price = 9; //价格
+  repeated bytes TxIds = 10;//订单发生的交易序列,订单[0]是创建订单的交易
+  bytes  PendingTokenAAmount = 11; //待决代币金额
+//  bytes  PendingTokenBAmount = 12; //待决代币金额
+}

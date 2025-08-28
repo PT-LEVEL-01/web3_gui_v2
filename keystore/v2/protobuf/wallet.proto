@@ -1,0 +1,43 @@
+//指定版本
+//注意proto3与proto2的写法有些不同
+//protobuf官方中文文档
+//https://www.jianshu.com/p/4443c28d4bf7
+syntax = "proto3";
+
+//包名，通过protoc生成时go文件时
+package protobuf;
+
+option go_package = "./go_protobuf";
+
+message Wallet {
+  string                   AddrPre        = 1 ;   //地址前缀
+  repeated     Keystore    Keystore       = 2 ;   //
+  uint64                   useKeystore    = 3 ;   //节点第几个空间，从1开始,下标为0的节点为实际节点。
+}
+
+message Keystore {
+  string                     Nickname       = 1 ;   //
+  string                     AddrPre        = 2 ;   //地址前缀
+  bytes                      CryptedSeed    = 3 ;   //节点第几个空间，从1开始,下标为0的节点为实际节点。
+  bytes                      Salt           = 4 ;   //vid，虚拟节点网络地址
+  uint64                     Rounds         = 5 ;    //pbkdf2轮数
+  bytes                      CheckHash      = 6 ;    //密码hash
+  repeated    CoinAddress    CoinAddr       = 7 ;    //已经生成的收款地址列表
+  repeated    CoinAddress    NetAddr        = 8 ;    //已经生成的网络地址列表
+  repeated    CoinAddress    DHAddr         = 9 ;    //已经生成的DHkey列表
+  repeated    CoinAddress    CoinAddrOther  = 10 ;    //已经生成的其他币种的收款地址列表
+  uint64                     Version        = 11 ;    //版本号
+}
+
+message CoinAddress {
+  uint32    Purpose       = 1 ;    //
+  uint32    CoinType      = 2 ;    //
+  uint32    Account       = 3 ;    //
+  uint32    Change        = 4 ;    //
+  uint32    Index         = 5 ;    //
+  string    Nickname      = 6 ;   //节点真实网络地址
+  bytes     Addr          = 7 ;    //
+  bytes     CryptedPuk    = 8 ;    //
+  bytes     CryptedPrk    = 9 ;    //
+  bytes     CheckHash     = 10 ;    //密码hash
+}

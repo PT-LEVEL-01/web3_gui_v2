@@ -1,0 +1,32 @@
+//指定版本
+//注意proto3与proto2的写法有些不同
+//protobuf官方中文文档
+//https://www.jianshu.com/p/4443c28d4bf7
+syntax = "proto3";
+
+//包名，通过protoc生成时go文件时
+package go_protos;
+
+option go_package = "./go_protos";
+
+import "txbase.proto";
+
+message TxTokenPublish {
+	TxBase           TxBase            = 1;
+    string           Token_name        = 2;  //名称
+    string           Token_symbol      = 3;  //单位
+    bytes            Token_supply      = 4;  //发行总量
+    uint64           Token_accuracy    = 5;  //小数点之后位数
+    uint64           Token_Vout_total  = 6;  //输出交易数量
+    repeated Vout    Token_Vout        = 7;  //交易输出
+}
+
+message TokenInfo {
+    bytes            token_id          = 1;  //tokenid
+    string           token_name        = 2;  //名称
+    string           token_symbol      = 3;  //单位
+    bytes            token_supply      = 4;  //发行总量
+    uint64           token_accuracy    = 5;  //小数点之后位数
+    bytes            owner             = 6;  //拥有者
+}
+

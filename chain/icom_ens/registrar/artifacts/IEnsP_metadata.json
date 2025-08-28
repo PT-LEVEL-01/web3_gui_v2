@@ -1,0 +1,45 @@
+{
+	"compiler": {
+		"version": "0.8.18+commit.87f61d96"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"registrar/IEnsPool.sol": "IEnsP"
+		},
+		"evmVersion": "paris",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"registrar/IEnsPool.sol": {
+			"keccak256": "0xd6c48ea247381e73c159f7dce4a4d9357b34f5a521faba80de3d36eb42d27ebf",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://0f6c3a1a16050a0eab7347e0a65005f48a885ef2087af47c22d420b1a6c6a3fb",
+				"dweb:/ipfs/QmY2TWg81RCKqsVQm5gpgH21ERQYEw1hiFkAmztDgFvnhw"
+			]
+		}
+	},
+	"version": 1
+}

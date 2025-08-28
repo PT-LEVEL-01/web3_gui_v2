@@ -1,0 +1,48 @@
+//指定版本
+//注意proto3与proto2的写法有些不同
+//protobuf官方中文文档
+//https://www.jianshu.com/p/4443c28d4bf7
+syntax = "proto3";
+
+//包名，通过protoc生成时go文件时
+package go_protos;
+
+import "txbase.proto";
+
+option go_package = "./go_protos";
+
+//多签集合
+message MultsignSet {
+  bytes MultAddress = 1; //多签地址
+  repeated bytes Puks = 2; //公钥集合
+  bytes RandNum = 3; //随机数
+  bytes Name = 4; //名字
+}
+
+//多签地址
+message TxMultsignAddr {
+  TxBase TxBase = 1;
+  bytes MultAddress = 2; //多签地址
+  bytes RandNum = 3; //随机数
+  repeated Vin MultVins = 4; //多签集合,保证顺序,验证 2f/3 + 1
+}
+
+//多签支付
+message TxMultsignPay {
+  TxBase TxBase = 1;
+  bytes MultAddress = 2; //多签地址
+  repeated Vin MultVins = 3; //多签集合,保证顺序,验证 2f/3 + 1
+}
+
+//多签域名
+message TxMultsignName {
+	TxBase TxBase = 1;
+	bytes MultAddress = 2; //多签地址
+	repeated Vin MultVins = 3; //多签集合,保证顺序,验证 2f/3 + 1
+	bytes Account = 4; //账户名称
+	repeated bytes NetIds = 5; //网络地址列表
+	bytes NetIdsMerkleHash = 6; //网络地址默克尔树hash
+	repeated bytes AddrCoins = 7; //网络地址列表
+	bytes AddrCoinsMerkleHash = 8; //网络地址默克尔树hash
+	int32 NameActionType = 9; //域名动作类型
+}

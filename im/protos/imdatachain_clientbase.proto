@@ -1,0 +1,22 @@
+//指定版本
+//注意proto3与proto2的写法有些不同
+//protobuf官方中文文档
+//https://www.jianshu.com/p/4443c28d4bf7
+syntax = "proto3";
+
+//包名，通过protoc生成时go文件时
+package go_protos;
+
+option go_package = "./go_protos";
+
+message ImDataChainClientBase {
+  ImClientBase    Base    =1;  //
+}
+
+message ImClientBase {
+  uint64            Command            =1;  //日志指令
+  bytes             Random             =2;  //随机数
+  bytes             AddrFrom           =3;  //发送者
+  bytes             AddrTo             =4;  //发送给谁
+  int64             Time               =5;  //时间
+}

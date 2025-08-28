@@ -1,0 +1,27 @@
+//指定版本
+//注意proto3与proto2的写法有些不同
+//protobuf官方中文文档
+//https://www.jianshu.com/p/4443c28d4bf7
+syntax = "proto3";
+
+//包名，通过protoc生成时go文件时
+package go_protos;
+
+option go_package = "./go_protos";
+
+message ImProxyInfoList {
+	repeated    ImProxyInfo    List     =1;  //
+}
+
+message ImProxyInfo {
+	bytes              Addr              =1;  //用户地址
+	bytes              Nickname          =2;  //昵称
+	uint64             Price             =3;  //单价
+	uint64             Count             =4;  //次数
+	bool               Open              =5;  //是否打开服务
+	uint64             Selling           =6;  //正在售卖的容量 单位：1G
+	uint64             SellingLock       =7;  //订单锁定容量 单位：1G
+	uint64             Sold              =8;  //已经卖出 单位：1G
+	uint64             UseTimeMax        =9;  //每个订单租用时间最大值 单位：天
+	uint64             RenewalTime       =10;  //续费时间，订单到期前多少天可以开始续费。等于0时，不能再续费了 单位：天
+}

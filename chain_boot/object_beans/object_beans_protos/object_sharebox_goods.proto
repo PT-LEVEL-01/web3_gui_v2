@@ -1,0 +1,23 @@
+//指定版本
+//注意proto3与proto2的写法有些不同
+//protobuf官方中文文档
+//https://www.jianshu.com/p/4443c28d4bf7
+syntax = "proto3";
+
+//包名，通过protoc生成时go文件时
+package go_protos;
+
+option go_package = "./protos_object_beans";
+
+import "object_base.proto";
+
+message ObjectShareboxGoods {
+  ObjectBase    Base              =1;  //
+  bytes         GoodsId           =2;  //商品id
+  string        Name              =3;  //商品名称
+  uint64        Price             =4;  //价格
+  bool          SalesTotalMany    =5;  //虚拟商品，销售数量无限多
+  uint64        SalesTotal        =6;  //销售总量
+  uint64        SoldTotal         =7;  //已经卖出量
+  uint64        LockTotal         =8;  //未付款，锁定数量
+}

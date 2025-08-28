@@ -1,0 +1,35 @@
+//指定版本
+//注意proto3与proto2的写法有些不同
+//protobuf官方中文文档
+//https://www.jianshu.com/p/4443c28d4bf7
+syntax = "proto3";
+
+//包名，通过protoc生成时go文件时
+package go_protos;
+
+option go_package = "./go_protos";
+
+message ImDataChainProxyBase {
+  ImProxyBase    Base    =1;  //发送ID
+}
+
+message ImProxyBase {
+  bytes             ID                 =1;  //发送ID
+  bytes             SendID             =2;  //发送者的消息id，用于消息去重
+  bytes             PreHash            =3;  //日志记录连续的id
+  bytes             Hash               =4;  //日志记录连续的id
+  uint64            Command            =5;  //日志指令
+  bytes             Index              =6;  //日志记录连续的id
+  bytes             SendIndex          =7;  //发送者索引
+  bytes             AddrFrom           =8;  //发送者
+  bytes             AddrTo             =9;  //发送给谁
+  bytes             AddrProxyServer    =10;  //代理服务器地址
+  bytes             GroupID            =11;  //代理服务器地址
+  uint64            EncryptType        =12;  //加密类型
+  bytes             Content            =13;  //日志内容
+  bytes             Sign               =14;  //签名
+  uint64            Status             =15;  //消息状态
+  bytes             DhPuk              =16;  //添加好友的时候，主动发送自己的公钥，用于解密
+  int64             SendTime           =17;  //发送者时间
+  int64             RecvTime           =18;  //接收者时间
+}

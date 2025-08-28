@@ -1,0 +1,239 @@
+
+系统中所有错误以编号定义，含义参看代码注释
+ERROR_CODE_success             = 60000             //成功
+ERROR_CODE_system_error_remote = 60001 //系统错误，远程节点
+ERROR_CODE_system_error_self   = 60002   //系统错误，自己节点
+ERROR_CODE_params_format        = 61005 //传入参数格式错误，不能解析参数
+ERROR_CODE_params_format_return = 61006 //返回参数格式错误，不能解析参数
+ERROR_CODE_Not_present          = 61007 //不存在
+ERROR_CODE_exist                = 61008 //已经存在
+ERROR_CODE_password_fail = 61009 //已经存在
+ERROR_CODE_file_transfer_classID_not_find = 62001 //文件传输：传输单元ID未找到
+ERROR_CODE_file_transfer_file_nonexist    = 62002 //文件传输：文件不存在
+ERROR_CODE_file_transfer_No_permission    = 62003 //文件传输：没有文件下载权限
+ERROR_CODE_file_transfer_No_find_task     = 62004 //文件传输：没有找到下载任务
+ERROR_CODE_order_not_pay = 63001 //有未支付订单
+ERROR_CODE_order_repeat  = 63002 //订单重复
+ERROR_CODE_IM_In_the_friend_list                = 64001 //好友在列表中
+ERROR_CODE_IM_invalid_Agree_Add_Friend          = 64002 //无效的同意添加好友，对方并未申请添加好友，你却同意。
+ERROR_CODE_IM_user_not_exist                    = 64003 //用户不存在
+ERROR_CODE_IM_too_many_undelivered_messages     = 64004 //未送达消息太多
+ERROR_CODE_IM_not_proxy                         = 64005 //不是代理节点
+ERROR_CODE_IM_check_hash_fail                   = 64006 //消息hash验证失败
+ERROR_CODE_IM_index_too_small                   = 64007 //当本地上传消息与代理节点消息不连续时，本地消息index太小
+ERROR_CODE_IM_index_too_big                     = 64008 //当本地上传消息与代理节点消息不连续时，本地消息index太大
+ERROR_CODE_IM_index_discontinuity               = 64009 //数据链index不连续
+ERROR_CODE_IM_datachain_fork                    = 64010 //代理节点的消息和本地消息不一致，消息分叉了
+ERROR_CODE_IM_datachain_user_different          = 64011 //本次保存的多条数据链中，用户不相同
+ERROR_CODE_IM_datachain_cmd_fail                = 64012 //命令错误
+ERROR_CODE_IM_datachain_cmd_exist               = 64013 //命令未找到
+ERROR_CODE_IM_datachain_sendIndex_discontinuity = 64014 //发送者的sendIndex不连续，有消息遗漏
+ERROR_CODE_IM_datachain_params_fail             = 64015 //参数错误
+ERROR_CODE_IM_group_not_admin                   = 64016 //不是群管理员，无操作权限
+ERROR_CODE_IM_group_not_member                  = 64017 //不是本群成员
+ERROR_CODE_IM_group_shoutup                     = 64018 //群禁言了
+ERROR_CODE_IM_group_exist                       = 64019 //群已经存在
+ERROR_CODE_IM_group_not_exist                   = 64020 //群不存在
+ERROR_CODE_IM_group_dissolve                    = 64021 //群已经解散
+ERROR_CODE_IM_dh_version_unknown                = 64022 //dh公钥信息版本未知
+ERROR_CODE_IM_dh_not_exist                      = 64023 //dh公钥不存在
+ERROR_CODE_IM_imgBase64_code_fail               = 64024 //图片base64编码错误
+ERROR_CODE_sharebox_Request_path_format_error = 65001 //请求访问路径错误
+ERROR_CODE_sharebox_Request_path_not_found    = 65002 //请求访问路径不存在
+ERROR_CODE_sharebox_Request_path_not_a_folder = 65003 //请求访问路径不是一个文件夹
+ERROR_CODE_storage_db_full                        = 66001 //磁盘已经满了
+ERROR_CODE_storage_db_path_Homologous             = 66002 //数据库路径同在一个磁盘中
+ERROR_CODE_storage_encry_type_Not_Supported       = 66003 //不支持的加密类型
+ERROR_CODE_storage_auth_file_No_permission        = 66004 //没有这个文件的操作权限
+ERROR_CODE_storage_Insufficient_user_space        = 66005 //用户存储空间不足
+ERROR_CODE_storage_orders_not_exist               = 66006 //订单不存在
+ERROR_CODE_storage_Service_expiration_and_closure = 66007 //服务到期关闭
+ERROR_CODE_storage_orders_not_overtime            = 66008 //订单未到续费时间
+ERROR_CODE_storage_orders_overtime                = 66009 //订单到期
+ERROR_CODE_storage_del_dirAndFile_NotSameFolder   = 66010 //删除的文件和文件夹不是同一文件夹
+ERROR_CODE_storage_No_need_upload_files           = 66011 //文件已经存在，不需要上传
+ERROR_CODE_storage_over_free_space_limit          = 66012 //超过用户空闲空间限制
+ERROR_CODE_storage_over_pay_space_limit           = 66013 //超过单一用户购买空间限制
+ERROR_CODE_CIRCLE_classname_exist                 = 67001 //类别名称已经存在
+
+
+以下接口中，返回参数是json格式。所有错误全部以编号方式返回。
+例如：{"code":60000}
+返回参数较多时，找自己需要的参数即可，不理解先不管，缺少需要的参数再询问开发人员。
+
+1.获取自己订单中云存储服务器列表
+Storage_client_GetStorageServiceList()
+返回参数：
+	Addr              string   //节点地址
+	Nickname          string   //昵称
+    IsOpen            bool     //是否打开
+    Directory         []string //提供空间目录
+    DirectoryFreeSize []uint64 //每个目录的剩余空间
+    Selling           uint64   //正在售卖的容量 单位：1G
+    SellingLock       uint64   //订单锁定容量 单位：1G
+    Sold              uint64   //已经卖出 单位：1G
+    PriceUnit         uint64   //单价 单位：1G/1天
+    UserFreelimit     uint64   //用户空闲空间限制,用户只能购买这么多剩余空间，当空间不够时才能继续购买 单位：1G
+    UserCanTotal      uint64   //每个用户可以购买的空间总量 单位：1G
+    UseTimeMax        uint64   //每个订单租用时间最大值 单位：天
+    RenewalTime       uint64   //续费时间，订单到期前多少天可以开始续费。等于0时，不能再续费了 单位：天
+    Count             uint64   //在线次数
+
+2.获取搜索到的云存储服务器列表
+Storage_client_GetSearchStorageServiceList()
+返回参数：
+    Addr              string   //节点地址
+    Nickname          string   //昵称
+    IsOpen            bool     //是否打开
+    Directory         []string //提供空间目录
+    DirectoryFreeSize []uint64 //每个目录的剩余空间
+    Selling           uint64   //正在售卖的容量 单位：1G
+    SellingLock       uint64   //订单锁定容量 单位：1G
+    Sold              uint64   //已经卖出 单位：1G
+    PriceUnit         uint64   //单价 单位：1G/1天
+    UserFreelimit     uint64   //用户空闲空间限制,用户只能购买这么多剩余空间，当空间不够时才能继续购买 单位：1G
+    UserCanTotal      uint64   //每个用户可以购买的空间总量 单位：1G
+    UseTimeMax        uint64   //每个订单租用时间最大值 单位：天
+    RenewalTime       uint64   //续费时间，订单到期前多少天可以开始续费。等于0时，不能再续费了 单位：天
+    Count             uint64   //在线次数
+
+3.获取订单列表
+IM_SearchFriendInfo()
+返回参数：
+    Number     string //订单编号，全局自增长ID
+    UserAddr   string //消费者地址
+    ServerAddr string //服务器地址
+    SpaceTotal uint64 //购买空间数量 单位：1G
+    UseTime    uint64 //空间使用时间 单位：1天
+    TotalPrice uint64 //订单总金额
+    ChainTx    string //区块链上的交易
+    TxHash     string //已经上链的交易hash
+    CreateTime int64  //订单创建时间
+    TimeOut    int64  //订单过期时间
+
+4.获取订单
+@serverAddr    uint64     //存储提供商地址
+@spaceTotal    uint64     //购买空间数量
+@useTime       uint64     //空间使用时间 单位：1天
+Storage_Client_GetOrders(serverAddr string, spaceTotal, useTime uint64)
+返回参数：
+    Number     string //订单编号，全局自增长ID
+    UserAddr   string //消费者地址
+    ServerAddr string //服务器地址
+    SpaceTotal uint64 //购买空间数量 单位：1G
+    UseTime    uint64 //空间使用时间 单位：1天
+    TotalPrice uint64 //订单总金额
+    ChainTx    string //区块链上的交易
+    TxHash     string //已经上链的交易hash
+    CreateTime int64  //订单创建时间
+    TimeOut    int64  //订单过期时间
+
+5.订单续费
+@preNumber     string     //前一个订单的id
+@serverAddr    string     //存储提供商地址
+@spaceTotal    uint64     //购买空间数量
+@useTime       uint64     //空间使用时间 单位：1天
+Storage_Client_GetRenewalOrders(preNumber, serverAddr string, spaceTotal, useTime uint64)
+返回参数：
+    Number     []byte               //订单编号，全局自增长ID
+    PreNumber  []byte               //续费订单引用之前的订单编号
+    UserAddr   nodeStore.AddressNet //消费者地址
+    ServerAddr nodeStore.AddressNet //服务器地址
+    SpaceTotal uint64               //购买空间数量 单位：1G
+    UseTime    uint64               //空间使用时间 单位：1天
+    TotalPrice uint64               //订单总金额
+    ChainTx    []byte               //区块链上的交易
+    TxHash     []byte               //已经上链的交易hash
+    CreateTime int64                //订单创建时间
+    TimeOut    int64                //订单过期时间
+
+6.客户端获取文件列表
+@serverAddr    string    服务器节点地址
+@dirIDStr      string    文件夹id，顶层文件夹传空字符串
+Storage_Client_GetFileList(serverAddr string, dirIDStr string)
+返回参数：
+    目录索引
+    type DirectoryIndexVO struct {
+        ID       string             //文件夹唯一ID采用全局自增长ID
+        ParentID string             //父文件夹ID
+        Name     string             //文件夹名称
+        Dirs     []DirectoryIndexVO //文件夹中包含文件夹
+        Files    []FileIndexVO      //文件列表
+        DirsID   []string           //包含文件夹的ID
+        FilesID  []string           //包含文件的ID
+    }
+    文件索引
+    type FileIndexVO struct {
+        ID             string   //文件加密后的hash值
+        Hash           string   //
+        DirID          string   //所属文件夹ID
+        UserAddr       string   //用户地址
+        Version        uint16   //版本号
+        Name           string   //文件名称
+        FileSize       uint64   //文件总大小
+        ChunkCount     uint32   //分片总量
+        ChunkOneSize   uint64   //每一个分片大小
+        Chunks         []string //每一个分片ID
+        PermissionType uint8    //权限类型 0=仅自己可访问;1=仅自己授权者可访问;2=所有人可访问;
+        EncryptionType uint32   //加密类型
+        Time           int64    //创建时间
+        Status         uint32   //内存中的状态，不用实例化
+        AbsPath        string   //文件的路径
+        Error          string   //报错信息
+    }
+
+7.客户端上传文件
+@serverAddr    string      服务器地址
+@dirID         string      远端文件夹id
+@filesPath     []string    需上传的文件路径
+Storage_Client_UploadFiles(serverAddr string, dirID string, filesPath []string)
+返回参数：
+    看错误编号是否返回成功
+
+8.创建新文件夹
+@serverAddr        string    服务器地址
+@parentDirIDStr    string    上级文件夹id
+@dirName           string    文件夹名称
+Storage_Client_CreateDir(serverAddr string, parentDirIDStr, dirName string)
+返回参数：
+    看错误编号是否返回成功
+
+9.删除多个文件和文件夹
+@serverAddr          string      服务器地址
+@dirAndFilesIDStr    []string    文件或文件夹id
+Storage_Client_DelDirAndFile(serverAddr string, dirAndFilesIDStr []string)
+返回参数：
+    看错误编号是否返回成功
+
+10.下载文件和文件夹
+@serverAddr          string      服务器地址
+@dirAndFilesIDStr    []string    下载的文件和文件夹列表
+@localPath           string      保存到本地的文件路径
+Storage_Client_download(serverAddr string, dirAndFilesIDStr []string, localPath string)
+返回参数：
+    看错误编号是否返回成功
+
+11.下载列表
+Storage_Client_downloadList()
+返回参数：
+    PullID     string //文件下载者ID
+    Name       string //文件名称
+    FileSize   uint64 //文件总大小
+    PullSize   uint64 //已经下载的大小
+    Speed      uint64 //下载速度。单位：B/s
+    LocalPath  string //文件下载完后，保存到本地的路径
+    Status     int    //状态
+    CreateTime int64  //创建时间
+
+12.上传列表
+Storage_Client_uploadList()
+返回参数：
+    ClassID       uint64 //文件传输单元
+    SupplierID    string //提供者ID
+    Name          string //文件名称
+    TaskType      int    //任务类型。1=从共享文件夹下载;2=主动发送文件;
+    LocalFilePath string //本地文件路径
+    CreateTime    int64  //创建时间
+    OverTime      int64  //超时时间
+    FileSize      uint64 //文件总大小
+    OffsetIndex   uint64 //已经下载的大小

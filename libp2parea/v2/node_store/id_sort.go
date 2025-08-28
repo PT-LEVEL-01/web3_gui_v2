@@ -1,0 +1,78 @@
+package nodeStore
+
+import (
+	"bytes"
+	"math/big"
+	"sort"
+)
+
+// 从大到小排序
+type IdDESC []*big.Int
+
+func (this IdDESC) Len() int {
+	return len(this)
+}
+
+func (this IdDESC) Less(i, j int) bool {
+	qu := new(big.Int).Sub(this[i], this[j])
+	quInt := qu.Cmp(big.NewInt(0))
+	//从大到小排序
+	return quInt > 0
+}
+
+func (this IdDESC) Swap(i, j int) {
+	this[i], this[j] = this[j], this[i]
+}
+
+// 从小到大排序
+type IdASC struct {
+	findNode *big.Int
+	nodes    []*big.Int
+}
+
+func (this IdASC) Len() int {
+	return len(this.nodes)
+}
+
+func (this IdASC) Less(i, j int) bool {
+	a := new(big.Int).Xor(this.findNode, this.nodes[i])
+	b := new(big.Int).Xor(this.findNode, this.nodes[j])
+	if a.Cmp(b) > 0 {
+		return false
+	} else {
+		return true
+	}
+}
+
+func (this IdASC) Swap(i, j int) {
+	this.nodes[i], this.nodes[j] = this.nodes[j], this.nodes[i]
+}
+
+func (this IdASC) Sort() []*big.Int {
+	sort.Sort(this)
+	return this.nodes
+}
+
+func NewIdASC(findNode *big.Int, nodes []*big.Int) *IdASC {
+	return &IdASC{
+		findNode: findNode,
+		nodes:    nodes,
+	}
+}
+
+// 对地址通过[]bytes大小排序
+type AddressBytes []AddressNet
+
+func (this AddressBytes) Len() int {
+	return len(this)
+}
+
+func (this AddressBytes) Less(i, j int) bool {
+	cp := bytes.Compare(this[i].Data(), this[j].Data())
+	//从大到小排序
+	return cp > 0
+}
+
+func (this AddressBytes) Swap(i, j int) {
+	this[i], this[j] = this[j], this[i]
+}

@@ -1,0 +1,11 @@
+syntax = "proto3";
+
+package go_protos;
+
+option go_package = "./go_protos";
+
+message SnapshotBalanceHistory {
+  bytes GenerateMaxId = 1;
+  map<string, uint64> GenerateMaxIdForAccount = 2;
+  uint64 ForkNo = 3;
+}

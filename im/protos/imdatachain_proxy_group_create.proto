@@ -1,0 +1,28 @@
+//指定版本
+//注意proto3与proto2的写法有些不同
+//protobuf官方中文文档
+//https://www.jianshu.com/p/4443c28d4bf7
+syntax = "proto3";
+
+//包名，通过protoc生成时go文件时
+package go_protos;
+
+option go_package = "./go_protos";
+
+import "imdatachain_proxybase.proto";
+
+message ImProxyGroupCreate {
+  ImProxyBase              Base                     =1;    //
+  bytes                    ProxyMajor               =2;    //指定一个代理节点作为群数据链构建者
+  bool                     ShoutUp                  =3;    //是否禁言
+  bytes                    Nickname                 =4;    //群昵称
+  int64                    CreateTime               =5;    //创建时间
+  bytes                    MemberAddrsMerkleRoot    =6;    //好友地址默克尔hash
+  repeated bytes           MembersAddr              =7;    //群成员地址
+  repeated int64           MembersTime              =8;    //成员同意加入时间
+  repeated bytes           MembersSign              =9;    //成员同意加入群的签名
+  repeated bytes           MembersSignPuk           =10;    //成员同意加入群的签名用公钥
+  repeated bytes           MembersShareKey          =11;    //每个成员的公钥和管理员的私钥作为交换密钥加密的key
+  repeated bytes           MembersDHPuk             =12;    //群成员公钥
+  int64                    Status                   =13;    //群状态。1=正常;2=解散;3=;
+}

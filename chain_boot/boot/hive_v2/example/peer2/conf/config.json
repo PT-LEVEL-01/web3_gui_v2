@@ -1,0 +1,16 @@
+{
+  "AreaName":"test",
+  "ip":"127.0.0.1",
+  "port":39981,
+  "WebAddr":"0.0.0.0",
+  "WebPort":3081,
+  "WebStatic":"./static",
+  "WebViews":"./views",
+  "RpcServer":true,
+  "RpcUser":"test",
+  "RpcPassword":"testp",
+  "miner":true,
+  "NetType":"not release",
+  "AddrPre":"HIVE",
+  "end":0
+}

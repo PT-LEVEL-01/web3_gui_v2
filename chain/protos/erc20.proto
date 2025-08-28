@@ -1,0 +1,32 @@
+//指定版本
+//注意proto3与proto2的写法有些不同
+//protobuf官方中文文档
+//https://www.jianshu.com/p/4443c28d4bf7
+syntax = "proto3";
+
+//包名，通过protoc生成时go文件时
+package go_protos;
+
+option go_package = "./go_protos";
+
+message Erc20 {
+  string         From = 1; //发行人
+  string         Name = 2 ; //代币名
+  string         Symbol = 3 ; //代币标识
+  uint32         Decimals = 4 ; //代币精度
+  string         TotalSupply = 5 ; //代币供应量
+}
+
+message Erc721 {
+  string         From = 1; //发行人
+  string         Name = 2 ; //代币名
+  string         Address = 3 ; //合约地址
+  string         TotalSupply = 4 ; //代币供应量
+}
+
+message Erc1155 {
+  string         From = 1; //发行人
+  string         Name = 2 ; //代币名
+  string         Address = 3 ; //合约地址
+  string         TotalSupply = 4 ; //代币供应量
+}

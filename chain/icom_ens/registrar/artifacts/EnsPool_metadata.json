@@ -1,0 +1,304 @@
+{
+	"compiler": {
+		"version": "0.8.19+commit.7dd6d404"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [],
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "label",
+						"type": "uint256"
+					}
+				],
+				"name": "getGlobalDomainTypeName",
+				"outputs": [
+					{
+						"internalType": "uint256[]",
+						"name": "",
+						"type": "uint256[]"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "string",
+						"name": "name",
+						"type": "string"
+					}
+				],
+				"name": "getGlobalDomainTypeNameTest",
+				"outputs": [
+					{
+						"internalType": "uint256[]",
+						"name": "",
+						"type": "uint256[]"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "label",
+						"type": "uint256"
+					}
+				],
+				"name": "getGlobalMasterLockTypeName",
+				"outputs": [
+					{
+						"internalType": "uint256[]",
+						"name": "",
+						"type": "uint256[]"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"name": "globalDomainTypeStatusV3",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"name": "globalDomainTypeV3",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "status",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"name": "globalMasterLockStatusV3",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"name": "globalMasterLockV3",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "status",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "label",
+						"type": "uint256"
+					}
+				],
+				"name": "isGlobalDomainNameExit",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "label",
+						"type": "uint256"
+					}
+				],
+				"name": "isGlobalMasterLockNameExit",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "label",
+						"type": "uint256"
+					}
+				],
+				"name": "isGlobalMasterLockTypeNameExit",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "label",
+						"type": "uint256"
+					}
+				],
+				"name": "isGlobalTypeNameExit",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "string",
+						"name": "typeName",
+						"type": "string"
+					},
+					{
+						"internalType": "string[]",
+						"name": "name",
+						"type": "string[]"
+					}
+				],
+				"name": "setGlobalDomainTypeV3",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "string",
+						"name": "typeName",
+						"type": "string"
+					},
+					{
+						"internalType": "string[]",
+						"name": "name",
+						"type": "string[]"
+					}
+				],
+				"name": "setGlobalMasterLockV3",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"registrar/EnsPool.sol": "EnsPool"
+		},
+		"evmVersion": "paris",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"registrar/EnsPool.sol": {
+			"keccak256": "0x76c09c5818fe1b767aa318fb214a398c58e9a10891cf929b97b01ab1131be81d",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://8883ade6428d8721f48c345f8088ec4d658d61a02844b7f06d0ff6f19a31ccd9",
+				"dweb:/ipfs/Qmb23qZF8xdUW3R2vfVxapoR5hnUMzGXLGx8CJ8SU2f2oD"
+			]
+		},
+		"registrar/IEnsPool.sol": {
+			"keccak256": "0x888a5a32ff312a9cbea81b1195997b87bfd3530f20cae5b39780b17a79d5ff96",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://2f633fdad8f3782c9ee20a9c8ad22dd9de573e497d36e6a85363cc7ebcd8f371",
+				"dweb:/ipfs/QmU61qsHRN78vph9bAhByW5T7CQHpkt8D4hp8LJYRSjy55"
+			]
+		}
+	},
+	"version": 1
+}

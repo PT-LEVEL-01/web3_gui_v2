@@ -1,0 +1,30 @@
+//指定版本
+//注意proto3与proto2的写法有些不同
+//protobuf官方中文文档
+//https://www.jianshu.com/p/4443c28d4bf7
+syntax = "proto3";
+
+//包名，通过protoc生成时go文件时
+package protobuf;
+
+option go_package = "./go_protobuf";
+
+message MessageBaseV2 {
+    MessageHeadV2    Base    = 1 ; //
+}
+
+message MessageHeadV2 {
+  uint64           MsgEngineID        = 1 ;  //底层协议号
+  bytes            SenderAddr         = 2 ;  //发送者id
+  bytes            SenderSuperAddr    = 3 ;  //发送者超级节点id
+  bytes            SenderProxyAddr    = 4 ;  //发送者代理节点id
+  bytes            SenderMachineID    = 5 ;  //发送者设备id
+  bytes            RecvAddr           = 6 ;  //接收者id
+  bytes            RecvSuperAddr      = 7 ;  //接收者的超级节点id
+  bytes            RecvProxyAddr      = 8 ;  //接收者代理节点id
+  uint64           MsgID              = 9 ;  //消息id
+  bytes            RecvMachineID      = 10 ;  //接收者设备id
+  bytes            SendID             = 11 ;  //发送消息id
+  bytes            ReplyID            = 12 ;  //回复消息ID
+  bytes            Content            = 13 ;  //消息内容
+}

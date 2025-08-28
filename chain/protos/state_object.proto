@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+//包名，通过protoc生成时go文件时
+package go_protos;
+
+option go_package = "./go_protos";
+message StateObject{
+  bytes address = 1;
+  map<string,bytes> cacheStorage = 2;
+  bytes code = 3;
+  bytes codeHash = 4;
+  uint64 balance = 5;
+  bool balanceChange = 6;
+  uint64 nonce = 7;
+  bool nonceChange = 8;
+  bool suicide = 9;
+}

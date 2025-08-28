@@ -1,0 +1,42 @@
+//指定版本
+//注意proto3与proto2的写法有些不同
+//protobuf官方中文文档
+//https://www.jianshu.com/p/4443c28d4bf7
+syntax = "proto3";
+
+//包名，通过protoc生成时go文件时
+package go_protos;
+
+option go_package = "./go_protos";
+
+message UserInfoList {
+	repeated    UserInfo    userList     =1;  //
+}
+
+message UserInfo {
+	bytes              Addr                =1;  //用户地址
+	bytes              Nickname            =2;  //昵称
+	bytes              RemarksName         =3;  //备注昵称
+	uint64             HeadNum             =4;  //头像编号
+	uint64             Status              =5;  //状态
+	int64              Time                =6;  //UNIX时间戳
+	repeated   ClassCount   ClassList      =7;  //我加入的圈子名称列表
+	bool               Tray                =8;  //是否打开托盘
+	repeated  bytes    Proxy               =9;  //代理节点
+	bool               IsGroup             =10;  //是否是群
+	bytes              GroupId             =11;  //群ID
+	bytes	             AddrAdmin           =12;  //群管理员地址
+	bytes              GroupSign           =13;  //群签名
+	int64              GroupAcceptTime     =14;  //同意入群时间
+	bytes		           GroupSignPuk        =15;  //群签名用的公钥
+	bytes		           GroupShareKey       =16;  //群消息加解密密码
+	bytes              GroupDHPuk          =17;  //协商密钥用公钥
+	bool               Admin               =18;  //是否管理员
+	bytes		           Token               =19;  //令牌
+	bytes		           Notes               =20;  //备注
+}
+
+message ClassCount {
+	bytes           Name                = 1;  //圈子名称
+	uint64          Size                = 2;  //文章数量
+}

@@ -1,0 +1,29 @@
+//指定版本
+//注意proto3与proto2的写法有些不同
+//protobuf官方中文文档
+//https://www.jianshu.com/p/4443c28d4bf7
+syntax = "proto3";
+
+//包名，通过protoc生成时go文件时
+package go_protos;
+
+option go_package = "./go_protos";
+
+message StorageOrderForm {
+  bytes             Number              =1;  //订单编号，全局自增长ID
+  bytes             PreNumber           =2;  //续费订单引用之前的订单编号
+  bytes             UserAddr            =3;  //消费者地址
+  bytes             ServerAddr          =4;  //服务器地址
+  bytes             ServerAddrCoin      =5;  //服务器收款地址
+  uint64            SpaceTotal          =6;  //购买空间数量 单位：1G
+  uint64            UseTime             =7;  //空间使用时间 单位：1天
+  uint64            TotalPrice          =8;  //订单总金额
+  bytes             ChainTx             =9;  //区块链上的交易
+  bytes             TxHash              =10;  //已经上链的交易hash
+  int64             CreateTime          =11;  //订单创建时间
+  int64             TimeOut             =12;  //订单过期时间
+  bytes             GoodsId             =13;  //商品id
+  uint64            PayLockBlockHeight    =14;  //支付限制区块高度
+  uint64            LockHeightOnChain     =15;  //已支付待上链区块高度
+}
+

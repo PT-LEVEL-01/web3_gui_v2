@@ -1,0 +1,34 @@
+//指定版本
+//注意proto3与proto2的写法有些不同
+//protobuf官方中文文档
+//https://www.jianshu.com/p/4443c28d4bf7
+syntax = "proto3";
+
+//包名，通过protoc生成时go文件时
+package go_protos;
+
+option go_package = "./go_protos";
+
+import "txbase.proto";
+
+
+message TxReward {
+	TxBase TxBase = 1;
+//	uint64 Index = 2; //前index见证人数量
+	uint64 AllReward = 2; //区块奖励
+}
+
+//内存模式交易事件
+//自定义的交易事件
+message CustomTxEvents {
+	bytes TxId = 1; //交易哈希
+	repeated CustomTxEvent CustomTxEvents = 2; //交易事件
+	repeated CustomTxEvent RewardPools    = 3; //交易奖励池
+}
+
+//自定义的交易事件
+message CustomTxEvent {
+	string Addr  = 1; //地址
+	uint64 Value = 2; //奖励金额
+	int32 Type   = 3; //1=预留,2=社区,3=轻节点,4=预留
+}

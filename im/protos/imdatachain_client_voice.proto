@@ -1,0 +1,21 @@
+//指定版本
+//注意proto3与proto2的写法有些不同
+//protobuf官方中文文档
+//https://www.jianshu.com/p/4443c28d4bf7
+syntax = "proto3";
+
+//包名，通过protoc生成时go文件时
+package go_protos;
+
+option go_package = "./go_protos";
+
+import "imdatachain_clientbase.proto";
+
+message ImDataChainVoice {
+  ImClientBase    Base          =1;  //
+  bytes           Name          =2;  //文件名称
+  bytes           MimeType      =3;  //文件类型
+  int64           Second         =4;  //语音录制了多少秒时间
+  bytes           BlockBinary    =5;  //文件二进制内容
+  string          BlockCoding    =6;  //文件编码内容
+}

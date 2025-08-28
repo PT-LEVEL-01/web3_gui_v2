@@ -1,0 +1,44 @@
+//指定版本
+//注意proto3与proto2的写法有些不同
+//protobuf官方中文文档
+//https://www.jianshu.com/p/4443c28d4bf7
+syntax = "proto3";
+
+//包名，通过protoc生成时go文件时
+package go_protos;
+
+option go_package = "./go_protos";
+
+message CrossChainTxInfo {
+	string    NodeAddr           =1;    //节点地址
+	string    WalletAddr         =2;    //钱包地址
+	string    ChainName          =3;    //链名称
+	uint32    ChainCoinType      =4;    //链编号
+	uint64    BlockHeight        =5;    //区块高度
+	string    BlockHash          =6;    //区块hash
+	string    TxId               =7;    //交易id
+	int64     TimeBlock          =8;    //交易时间
+	string    Status             =9;    //状态
+	string    From               =10;   //转账地址
+	string    To                 =11;   // 目标地址
+	string    ContractAddress    =12;   //
+	int64     Fee                =13;    // 交易手续费
+	string    FeeCny             =14;    // 交易手续费
+	string    FeeUsd             =15;    // 交易手续费
+	int64     Confirm            =16;    //交易确认数
+	int64     Amount             =17;    // 交易数量
+	string    TokenName          =18;    // 代币名称
+	bool      Send               =19;    // 是否是发送
+	int64     TimeStamp          =20;    //更新时间
+	int64     DocId              =21;    //
+	string    Type               =22;
+	uint64    Nonce              =23;
+	string    Unique             =24;
+	repeated    CrossChainUtxoAmount    UtxoInput     =25; // btc链存在多个输入和多个输出，btc等utxo模型链使用
+	repeated    CrossChainUtxoAmount    UtxoOutput    =26; // btc链存在多个输入和多个输出，btc等utxo模型链使用
+}
+
+message CrossChainUtxoAmount {
+	string              Address                =1;  //地址
+	uint64              Amount                 =2;  //余额
+}

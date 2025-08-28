@@ -1,0 +1,24 @@
+//指定版本
+//注意proto3与proto2的写法有些不同
+//protobuf官方中文文档
+//https://www.jianshu.com/p/4443c28d4bf7
+syntax = "proto3";
+
+//包名，通过protoc生成时go文件时
+package go_protos;
+
+option go_package = "./go_protos";
+
+message Filelist {
+	repeated    File    FileList     =1;  //文件列表
+	uint64      ErrorCode            =2;  //错误编码
+}
+
+message File {
+	bytes           Name                = 1;  //文件名称
+	bool            IsDir               = 2;  //是否文件夹
+	int64           UpdateTime          = 3;  //修改时间
+	uint64          Length              = 4;  //文件大小
+	bytes           Hash                = 5;  //文件hash
+	uint64          Price               = 6;  //价格
+}

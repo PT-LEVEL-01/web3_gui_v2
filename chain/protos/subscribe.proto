@@ -1,0 +1,49 @@
+syntax = "proto3";
+
+//包名，通过protoc生成时go文件时
+package go_protos;
+
+option go_package = "./go_protos";
+message SubscriberReq{
+  ReqHeader header = 1;
+  bytes payload=2;
+}
+message ReqHeader{
+  string tx_id=1;
+  ReqType req_type = 2;
+  int64 timestamp = 3;
+  int64 exp_time = 4;
+}
+enum ReqType{
+  SUBSCRIBE_CONTRACT_EVENT_INFO = 0;
+}
+message SubscribeContractEventPayload{
+  string topic = 1;
+  string contract_address = 2;
+  int64 start_block = 3;
+  int64 end_block = 4;
+}
+message SubscriberResp{
+  bytes data =1;
+}
+message ContractEvent{
+  string topic = 1;
+  string tx_id = 2;
+  string contract_address = 3;
+  repeated string event_data = 4;
+}
+message ContractEventInfo{
+  int64 block_height = 1;
+  string chain_id = 2;
+  string block_hash = 3;
+  string topic = 4;
+  string tx_id = 5;
+  string contract_address = 6;
+  repeated string event_data = 7;
+}
+message ContractEventInfoList{
+  repeated ContractEventInfo contract_events =1;
+}
+service Subscriber{
+  rpc EventSub(SubscriberReq)returns(stream SubscriberResp);
+}

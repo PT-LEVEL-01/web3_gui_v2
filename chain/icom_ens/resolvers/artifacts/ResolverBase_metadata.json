@@ -1,0 +1,65 @@
+{
+	"compiler": {
+		"version": "0.7.6+commit.7338295f"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "bytes4",
+						"name": "interfaceID",
+						"type": "bytes4"
+					}
+				],
+				"name": "supportsInterface",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "pure",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"resolvers/ResolverBase.sol": "ResolverBase"
+		},
+		"evmVersion": "istanbul",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"resolvers/ResolverBase.sol": {
+			"keccak256": "0xaaff59fd4f345bab1448ab6fc5a077d513486545ad98ebdcef2520ef65e18299",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://ecb42159d5e0e578ecc493a288aab5a9300e5996279818f1eaa11a1ffc55707e",
+				"dweb:/ipfs/QmPppdpxFDgjCh3TNbno3z8VLRZ13w1DomiTG29xidPycB"
+			]
+		}
+	},
+	"version": 1
+}

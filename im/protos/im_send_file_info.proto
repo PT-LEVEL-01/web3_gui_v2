@@ -1,0 +1,25 @@
+//指定版本
+//注意proto3与proto2的写法有些不同
+//protobuf官方中文文档
+//https://www.jianshu.com/p/4443c28d4bf7
+syntax = "proto3";
+
+//包名，通过protoc生成时go文件时
+package go_protos;
+
+option go_package = "./go_protos";
+
+message SendFileInfo {
+  bytes     Addr           =1;    //好友地址
+  bytes     FileNameAbs    =2;    //真实文件路径
+  int64     SendTime       =3;    //发送时间
+  bytes     Name           =4;    //文件名称
+  bytes     MimeType       =5;    //文件类型
+  uint64    FileSize       =6;    //文件总大小
+  uint64    BlockSize      =7;    //块大小
+  bytes     Hash           =8;    //文件hash
+  uint64    BlockTotal     =9;    //文件块总数
+  uint64    BlockIndex     =10;    //文件块编号，从0开始，连续增长的整数
+  bytes     Block          =11;    //文件块内容
+  bool      IsGroup        =12;    //是否是群
+}

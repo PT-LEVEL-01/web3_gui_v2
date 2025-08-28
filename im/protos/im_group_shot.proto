@@ -1,0 +1,24 @@
+//指定版本
+//注意proto3与proto2的写法有些不同
+//protobuf官方中文文档
+//https://www.jianshu.com/p/4443c28d4bf7
+syntax = "proto3";
+
+//包名，通过protoc生成时go文件时
+package go_protos;
+
+option go_package = "./go_protos";
+
+message GroupShot {
+  bytes    GroupID                    =1;    //群id
+  bytes    GroupKnit                  =2;    //群构建者
+  bytes    SendIndex                  =3;    //自己给群发送消息的index，必须连续的自增长ID
+  bytes    PreHash                    =4;    //
+  bytes    IndexParse                 =5;    //本地解析到的数据链高度
+  bytes    addrAdmin                  =6;    //管理员地址
+  bytes    addrKnitProxys             =7;    //群构建节点地址
+  repeated  bytes    members          =8;    //群成员
+  repeated  bytes    membersProxys    =9;    //群成员的代理
+  bool     shoutUp                    =10;    //是否禁言
+  bytes    ShareKey                   =11;    //群共享密钥，用于加解密群内消息
+}

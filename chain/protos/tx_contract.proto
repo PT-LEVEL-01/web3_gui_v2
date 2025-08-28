@@ -1,0 +1,22 @@
+//指定版本
+//注意proto3与proto2的写法有些不同
+//protobuf官方中文文档
+//https://www.jianshu.com/p/4443c28d4bf7
+syntax = "proto3";
+
+//包名，通过protoc生成时go文件时
+package go_protos;
+
+option go_package = "./go_protos";
+
+import "txbase.proto";
+
+
+message TxContract {
+  TxBase   TxBase           = 1;
+  string   Action           = 2; //合约方法
+  bytes    GzipSource       = 3; //源码压缩
+  uint64   ContractClass    = 4; //合约类型
+  uint64   GasPrice         = 5; //gas价格
+  bytes    GzipAbi          = 6; //abi压缩
+}

@@ -1,0 +1,425 @@
+
+系统中所有错误以编号定义，含义参看代码注释
+ERROR_CODE_success             = 60000             //成功
+ERROR_CODE_system_error_remote = 60001 //系统错误，远程节点
+ERROR_CODE_system_error_self   = 60002   //系统错误，自己节点
+ERROR_CODE_params_format        = 61005 //传入参数格式错误，不能解析参数
+ERROR_CODE_params_format_return = 61006 //返回参数格式错误，不能解析参数
+ERROR_CODE_Not_present          = 61007 //不存在
+ERROR_CODE_exist                = 61008 //已经存在
+ERROR_CODE_password_fail = 61009 //已经存在
+ERROR_CODE_file_transfer_classID_not_find = 62001 //文件传输：传输单元ID未找到
+ERROR_CODE_file_transfer_file_nonexist    = 62002 //文件传输：文件不存在
+ERROR_CODE_file_transfer_No_permission    = 62003 //文件传输：没有文件下载权限
+ERROR_CODE_file_transfer_No_find_task     = 62004 //文件传输：没有找到下载任务
+ERROR_CODE_order_not_pay = 63001 //有未支付订单
+ERROR_CODE_order_repeat  = 63002 //订单重复
+ERROR_CODE_IM_In_the_friend_list                = 64001 //好友在列表中
+ERROR_CODE_IM_invalid_Agree_Add_Friend          = 64002 //无效的同意添加好友，对方并未申请添加好友，你却同意。
+ERROR_CODE_IM_user_not_exist                    = 64003 //用户不存在
+ERROR_CODE_IM_too_many_undelivered_messages     = 64004 //未送达消息太多
+ERROR_CODE_IM_not_proxy                         = 64005 //不是代理节点
+ERROR_CODE_IM_check_hash_fail                   = 64006 //消息hash验证失败
+ERROR_CODE_IM_index_too_small                   = 64007 //当本地上传消息与代理节点消息不连续时，本地消息index太小
+ERROR_CODE_IM_index_too_big                     = 64008 //当本地上传消息与代理节点消息不连续时，本地消息index太大
+ERROR_CODE_IM_index_discontinuity               = 64009 //数据链index不连续
+ERROR_CODE_IM_datachain_fork                    = 64010 //代理节点的消息和本地消息不一致，消息分叉了
+ERROR_CODE_IM_datachain_user_different          = 64011 //本次保存的多条数据链中，用户不相同
+ERROR_CODE_IM_datachain_cmd_fail                = 64012 //命令错误
+ERROR_CODE_IM_datachain_cmd_exist               = 64013 //命令未找到
+ERROR_CODE_IM_datachain_sendIndex_discontinuity = 64014 //发送者的sendIndex不连续，有消息遗漏
+ERROR_CODE_IM_datachain_params_fail             = 64015 //参数错误
+ERROR_CODE_IM_group_not_admin                   = 64016 //不是群管理员，无操作权限
+ERROR_CODE_IM_group_not_member                  = 64017 //不是本群成员
+ERROR_CODE_IM_group_shoutup                     = 64018 //群禁言了
+ERROR_CODE_IM_group_exist                       = 64019 //群已经存在
+ERROR_CODE_IM_group_not_exist                   = 64020 //群不存在
+ERROR_CODE_IM_group_dissolve                    = 64021 //群已经解散
+ERROR_CODE_IM_dh_version_unknown                = 64022 //dh公钥信息版本未知
+ERROR_CODE_IM_dh_not_exist                      = 64023 //dh公钥不存在
+ERROR_CODE_IM_imgBase64_code_fail               = 64024 //图片base64编码错误
+ERROR_CODE_sharebox_Request_path_format_error = 65001 //请求访问路径错误
+ERROR_CODE_sharebox_Request_path_not_found    = 65002 //请求访问路径不存在
+ERROR_CODE_sharebox_Request_path_not_a_folder = 65003 //请求访问路径不是一个文件夹
+ERROR_CODE_storage_db_full                        = 66001 //磁盘已经满了
+ERROR_CODE_storage_db_path_Homologous             = 66002 //数据库路径同在一个磁盘中
+ERROR_CODE_storage_encry_type_Not_Supported       = 66003 //不支持的加密类型
+ERROR_CODE_storage_auth_file_No_permission        = 66004 //没有这个文件的操作权限
+ERROR_CODE_storage_Insufficient_user_space        = 66005 //用户存储空间不足
+ERROR_CODE_storage_orders_not_exist               = 66006 //订单不存在
+ERROR_CODE_storage_Service_expiration_and_closure = 66007 //服务到期关闭
+ERROR_CODE_storage_orders_not_overtime            = 66008 //订单未到续费时间
+ERROR_CODE_storage_orders_overtime                = 66009 //订单到期
+ERROR_CODE_storage_del_dirAndFile_NotSameFolder   = 66010 //删除的文件和文件夹不是同一文件夹
+ERROR_CODE_storage_No_need_upload_files           = 66011 //文件已经存在，不需要上传
+ERROR_CODE_storage_over_free_space_limit          = 66012 //超过用户空闲空间限制
+ERROR_CODE_storage_over_pay_space_limit           = 66013 //超过单一用户购买空间限制
+ERROR_CODE_CIRCLE_classname_exist                 = 67001 //类别名称已经存在
+
+
+以下接口中，返回参数是json格式。所有错误全部以编号方式返回。
+例如：{"code":60000}
+返回参数较多时，找自己需要的参数即可，不理解先不管，缺少需要的参数再询问开发人员。
+
+1.获取自己的个人信息
+IM_GetSelfInfo()
+返回参数：
+	Addr       string       //节点地址
+	Nickname   string       //昵称
+	HeadNum    uint64       //头像编号，外部预设编号及含义。
+	Status     uint64       //状态
+	Time       string       //UNIX时间戳
+	ClassCount []ClassCount //
+	Tray       bool         //
+	IsGroup    bool         //是否是群
+	GroupId    string       //群ID
+	GroupSign  string       //群签名
+	AddrAdmin  string       //群管理员地址
+
+2.设置自己的个人信息
+@nickname      string    //昵称
+@headNum       uint64    //头像编号，外部预设编号及含义。
+@traySwitch    bool      //PC端是否打开系统托盘
+IM_SetSelfInfo(nickname string, headNum uint64, traySwitch bool)
+返回参数：
+	Addr       string       //节点地址
+	Nickname   string       //昵称
+	HeadNum    uint64       //头像编号
+	Status     uint64       //状态
+	Time       string       //UNIX时间戳
+	ClassCount []ClassCount //
+	Tray       bool         //
+	IsGroup    bool         //是否是群
+	GroupId    string       //群ID
+	GroupSign  string       //群签名
+	AddrAdmin  string       //群管理员地址
+
+3.搜索好友基本信息
+@addrStr    string    好友地址
+IM_SearchFriendInfo(addrStr string)
+返回参数：
+	Addr       string       //节点地址
+	Nickname   string       //昵称
+	HeadNum    uint64       //头像编号
+	Status     uint64       //状态
+	Time       string       //UNIX时间戳
+	ClassCount []ClassCount //
+	Tray       bool         //
+	IsGroup    bool         //是否是群
+	GroupId    string       //群ID
+	GroupSign  string       //群签名
+	AddrAdmin  string       //群管理员地址
+
+4.添加好友
+@addrStr    string    好友地址
+IM_AddFriend(addrStr string)
+返回参数：
+    看错误编号是否返回成功
+
+5.获取好友申请列表
+IM_GetNewFriend()
+返回参数：
+    Addr       string       //节点地址
+    Nickname   string       //昵称
+    HeadNum    uint64       //头像编号
+    Status     uint64       //状态
+    Time       string       //UNIX时间戳
+    ClassCount []ClassCount //
+    Tray       bool         //
+    IsGroup    bool         //是否是群
+    GroupId    string       //群ID
+    GroupSign  string       //群签名
+    AddrAdmin  string       //群管理员地址
+
+6.同意好友申请
+@addrStr    string    好友地址
+IM_AgreeApplyFriend(addrStr string)
+返回参数：
+    看错误编号是否返回成功
+
+7.好友列表
+IM_GetFriendList()
+返回参数：
+    Addr       string       //节点地址
+    Nickname   string       //昵称
+    HeadNum    uint64       //头像编号
+    Status     uint64       //状态
+    Time       string       //UNIX时间戳
+    ClassCount []ClassCount //
+    Tray       bool         //
+    IsGroup    bool         //是否是群
+    GroupId    string       //群ID
+    GroupSign  string       //群签名
+    AddrAdmin  string       //群管理员地址
+
+8.发送文本消息
+@content    string    发送内容
+@toAddr     string    好友地址
+@quoteID    string    引用内容id
+IM_SendMsg(content, toAddr, quoteID string)
+返回参数：
+    看错误编号是否返回成功
+
+9.重发文本消息
+@fromAddr    string    发送者
+@toAddr      string    接收者
+@sendID      string    消息发送id
+IM_SendMsgAgain(fromAddr, toAddr, sendID string)
+返回参数：
+    看错误编号是否返回成功
+
+10.给一个好友发送文件
+@addrStr     string    好友地址
+@filePath    string    文件路径
+SendFiles(addrStr, filePath string)
+返回参数：
+    看错误编号是否返回成功
+
+11.给一个好友发送图片
+SendImage(addrStr, imgBase64 string)
+返回参数：
+    看错误编号是否返回成功
+
+12.查询消息历史记录
+@startIndex    string    查询消息范围起始index，首次查询传空字符串
+@count         uint64    查询消息条数
+@remoteAddr    string    查询的好友地址
+GetChatHistory(startIndex string, count uint64, remoteAddr string)
+返回参数：
+    Subscription   uint64                 //通知类型
+    Type           uint64                 //消息类型
+    FromIsSelf     bool                   //是否自己发出的
+    From           string                 //发送者
+    To             string                 //接收者
+    Content        string                 //消息内容
+    Time           string                 //时间
+    PullAndPushID  uint64                 //上传或者下载ID
+    Data           map[string]interface{} //
+    SendID         string                 //查询要用到的sendid
+    RecvID         string                 //
+    State          int                    //消息状态1=发送未送达;2=发送失败;3=发送成功;4=已读;
+    Index          string                 //数据库中消息索引
+    IndexSubOne    string                 //数据库中消息索引-1
+    IsGroup        bool                   //
+    FileSendTime   uint64                 //文件发送时间
+    FileName       string                 //文件名称
+    FileType       uint64                 //文件类型
+    FileSize       uint64                 //文件总大小
+    FileHash       string                 //文件hash
+    FileBlockTotal uint64                 //文件块总数
+    FileBlockIndex uint64                 //文件块编号，从0开始，连续增长的整数
+
+13.接收消息，阻塞接口，有新消息再返回
+IM_GetMsg()
+返回参数：
+    Subscription   uint64                 //通知类型
+    Type           uint64                 //消息类型
+    FromIsSelf     bool                   //是否自己发出的
+    From           string                 //发送者
+    To             string                 //接收者
+    Content        string                 //消息内容
+    Time           string                 //时间
+    PullAndPushID  uint64                 //上传或者下载ID
+    Data           map[string]interface{} //
+    SendID         string                 //查询要用到的sendid
+    RecvID         string                 //
+    State          int                    //消息状态1=发送未送达;2=发送失败;3=发送成功;4=已读;
+    Index          string                 //数据库中消息索引
+    IndexSubOne    string                 //数据库中消息索引-1
+    IsGroup        bool                   //
+    FileSendTime   uint64                 //文件发送时间
+    FileName       string                 //文件名称
+    FileType       uint64                 //文件类型
+    FileSize       uint64                 //文件总大小
+    FileHash       string                 //文件hash
+    FileBlockTotal uint64                 //文件块总数
+    FileBlockIndex uint64                 //文件块编号，从0开始，连续增长的整数
+
+//后端向前端及时通知类型
+SUBSCRIPTION_type_msg             = 1 //聊天消息
+SUBSCRIPTION_type_addFriend       = 2 //申请添加好友
+SUBSCRIPTION_type_agreeFriend     = 3 //同意添加好友
+SUBSCRIPTION_type_update_userinfo = 4 //好友个人信息更新
+
+
+
+14.创建一个群
+@nickname     string    群名称
+@proxyAddr    string    代理节点地址，没有代理传空字符串
+@shoutUp      bool      是否禁言
+ImProxyClient_CreateGroup(nickname, proxyAddr string, shoutUp bool)
+返回参数：
+    看错误编号是否返回成功
+
+15.获取自己创建的群列表
+ImProxyClient_GetCreateGroupList()
+返回参数：
+	ID              string //每条消息都有一个唯一ID
+	PreHash         string //
+	Hash            string //
+	Command         uint32 //日志指令
+	Index           string //日志记录连续的id
+	SendIndex       string //聊天记录发送者的发送index
+	AddrFrom        string //发送者
+	AddrTo          string //发送给谁
+	AddrProxyServer string //代理服务器节点
+	GroupID         string //群ID，以此判断是群消息还是个人消息，创建者地址和创建时间的Hash
+	EncryptType     uint32 //加密类型。0=未加密;1=AES加密;2=;
+	Sign   string //签名
+	Status uint8  //消息状态。0=保存到本地;1=发送成功;2=;
+    ShutUp               bool   //是否禁言
+    Nickname             string //群名称
+    CreateTime           int64  //创建时间
+
+
+16.获取群成员
+@groupId    string    群id
+ImProxyClient_GetGroupMembers(groupId string)
+返回参数：
+	Addr       string       //节点地址
+	Nickname   string       //昵称
+	HeadNum    uint64       //头像编号
+	Status     uint64       //状态
+	Time       int64        //UNIX时间戳
+	ClassCount []ClassCount //
+	Tray       bool         //
+	IsGroup    bool         //是否是群
+	GroupId    string       //群ID
+	GroupSign  string       //群签名
+	AddrAdmin  string       //群管理员地址
+
+17.修改一个群
+@groupId      string    群id
+@proxyAddr    string    代理节点地址，没有代理传空字符串
+@nickname     string    群名称
+@shoutUp      bool      是否禁言
+@force        bool      是否强制托管，当群代理节点不工作的时候，强制自己托管
+ImProxyClient_UpdateGroup(groupId, proxyAddr string, nickname string, shoutUp, force bool)
+返回参数：
+    看错误编号是否返回成功
+
+18.群邀请新人
+@groupId      string        群id
+@addrStr      []string      邀请的成员地址
+ImProxyClient_GroupInvitation(groupId string, addrStr []string)
+返回参数：
+    看错误编号是否返回成功
+
+19.接受群邀请
+@groupId      string      群id
+@addrStr      string      群管理员地址
+ImProxyClient_GroupAccept(groupId string, addrStr string)
+返回参数：
+    看错误编号是否返回成功
+
+20.同意添加人入群聊
+@groupIdStr    string      群id
+@addrStr       string      添加的新成员地址
+ImProxyClient_GroupAddMember(groupIdStr string, addrStr string)
+返回参数：
+    看错误编号是否返回成功
+
+21.解散一个群
+@groupId    string      群id
+ImProxyClient_DissolveGroup(groupId string)
+返回参数：
+    看错误编号是否返回成功
+
+22.退出一个群
+@groupId    string      群id
+ImProxyClient_QuitGroup(groupId string)
+返回参数：
+    看错误编号是否返回成功
+
+23.发送群消息
+@groupId    string      群id
+@content    string      消息内容
+@quoteID    string      引用内容id
+ImProxyClient_GroupSendText(groupId string, content, quoteID string)
+返回参数：
+    看错误编号是否返回成功
+
+
+24.获取自己订单中云存储服务器列表
+IMProxyServer_GetStorageServiceList()
+返回参数：
+    	Addr              string   //
+    	Nickname          string   //
+    	IsOpen            bool     //是否打开
+    	Directory         []string //提供空间目录
+    	DirectoryFreeSize []uint64 //每个目录的剩余空间
+    	Selling           uint64   //正在售卖的容量 单位：1G
+    	SellingLock       uint64   //订单锁定容量 单位：1G
+    	Sold              uint64   //已经卖出 单位：1G
+    	PriceUnit         uint64   //单价 单位：1G/1天
+    	UserFreelimit     uint64   //用户空闲空间限制,用户只能购买这么多剩余空间，当空间不够时才能继续购买 单位：1G
+    	UserCanTotal      uint64   //每个用户可以购买的空间总量 单位：1G
+    	UseTimeMax        uint64   //每个订单租用时间最大值 单位：天
+    	RenewalTime       uint64   //续费时间，订单到期前多少天可以开始续费。等于0时，不能再续费了 单位：天
+    	Count             uint64   //在线次数
+
+
+25.获取离线服务节点列表
+IMProxyClient_GetProxyList()
+返回参数：
+    	Addr              string   //
+    	Nickname          string   //
+    	IsOpen            bool     //是否打开
+    	Directory         []string //提供空间目录
+    	DirectoryFreeSize []uint64 //每个目录的剩余空间
+    	Selling           uint64   //正在售卖的容量 单位：1G
+    	SellingLock       uint64   //订单锁定容量 单位：1G
+    	Sold              uint64   //已经卖出 单位：1G
+    	PriceUnit         uint64   //单价 单位：1G/1天
+    	UserFreelimit     uint64   //用户空闲空间限制,用户只能购买这么多剩余空间，当空间不够时才能继续购买 单位：1G
+    	UserCanTotal      uint64   //每个用户可以购买的空间总量 单位：1G
+    	UseTimeMax        uint64   //每个订单租用时间最大值 单位：天
+    	RenewalTime       uint64   //续费时间，订单到期前多少天可以开始续费。等于0时，不能再续费了 单位：天
+    	Count             uint64   //在线次数
+
+
+26.获取代理节点租用订单
+@serverAddr    uint64     //代理节点地址
+@spaceTotal    uint64     //购买空间数量
+@useTime       uint64     //空间使用时间 单位：1天
+ImProxyClient_GetOrder(serverAddr string, spaceTotal, useTime uint64)
+返回参数：
+	Number     string //订单编号，全局自增长ID
+	UserAddr   string //消费者地址
+	ServerAddr string //服务器地址
+	SpaceTotal uint64 //购买空间数量 单位：1G
+	UseTime    uint64 //空间使用时间 单位：1天
+	TotalPrice uint64 //订单总金额
+	ChainTx    string //区块链上的交易
+	TxHash     string //已经上链的交易hash
+	CreateTime int64  //订单创建时间
+	TimeOut    int64  //订单过期时间
+
+27.获取订单列表
+ImProxyClient_GetOrderList()
+返回参数：
+	Number     string //订单编号，全局自增长ID
+	UserAddr   string //消费者地址
+	ServerAddr string //服务器地址
+	SpaceTotal uint64 //购买空间数量 单位：1G
+	UseTime    uint64 //空间使用时间 单位：1天
+	TotalPrice uint64 //订单总金额
+	ChainTx    string //区块链上的交易
+	TxHash     string //已经上链的交易hash
+	CreateTime int64  //订单创建时间
+	TimeOut    int64  //订单过期时间
+
+28.发送语音，base64字符串方式：data:audio/webm;codecs=opus;base64,iVBORw0KGgoAAAANSUhEUgAA...
+这是一个语音文件的base64字符串格式
+data:audio/webm;codecs=opus;base64,iVBORw0KGgoAAAANSUhEUgAA...
+其中MIMETYPE是"audio/webm;codecs=opus"
+数据内容是"iVBORw0KGgoAAAANSUhEUgAA..."
+发送语音有两种模式，一种是base64字符串，一种是文件。目前我实现了一种，base64字符串方式，这种方式要简单些，消息发送给对方，对方再把字符串拼接起来就可以使用了。
+<audio id="audioPlayer" src="data:audio/webm;codecs=opus;base64,iVBORw0KGgoAAAANSUhEUgAA..." controls></audio>
+@addrStr     string    * 好友地址
+@mimeType    string      文件类型    例如：audio/webm;codecs=opus
+@voiceCoding    string      语音编码字符串    例如：iVBORw0KGgoAAAANSUhEUgAA...
+@voiceSecond    int64       语音秒数
+SendVoiceBase64(addrStr, mimeType, voiceCoding string, voiceSecond int64)
+返回参数：
+    看错误编号是否返回成功

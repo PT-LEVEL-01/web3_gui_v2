@@ -1,0 +1,61 @@
+{
+	"compiler": {
+		"version": "0.8.19+commit.7dd6d404"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [],
+				"name": "HexLengthInsufficient",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "NotValidIndex",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "NotValidLength",
+				"type": "error"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"registrar/LibString.sol": "LibString"
+		},
+		"evmVersion": "paris",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"registrar/LibString.sol": {
+			"keccak256": "0x23dac7836b80a8ff9493737c2cf5f741739079f1b84f5311fb9ee4ef333745d8",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://5efa62b8a5fc95e1f3910caa665288fdf11538b7c8c7408c61ae566f228e52e0",
+				"dweb:/ipfs/QmTthzBYZnpD7FxH6LvBgxv9uMgxMp7SjCJYqRy9nPeoCb"
+			]
+		}
+	},
+	"version": 1
+}

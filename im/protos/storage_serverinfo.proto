@@ -1,0 +1,26 @@
+//指定版本
+//注意proto3与proto2的写法有些不同
+//protobuf官方中文文档
+//https://www.jianshu.com/p/4443c28d4bf7
+syntax = "proto3";
+
+//包名，通过protoc生成时go文件时
+package go_protos;
+
+option go_package = "./go_protos";
+
+message StorageServerInfo {
+  bytes              Addr              =1;  //用户地址
+  bytes              Nickname          =2;  //昵称
+  bool               IsOpen            =3;  //是否打开服务器 1=关闭;2=打开;
+  repeated    string    Directory      =4;  //提供空间的目录列表
+  uint64             Selling           =5;  //正在售卖的容量 单位：1G
+  uint64             SellingLock       =6;  //订单锁定容量 单位：1G
+  uint64             Sold              =7;  //已经卖出 单位：1G
+  uint64             PriceUnit         =8;  //单价 单位：1G
+  uint64             UserFreelimit     =9;  //用户空闲空间限制,用户只能购买这么多剩余空间，当空间不够时才能继续购买 单位：1G
+  uint64             UserCanTotal      =10;  //每个用户可以购买的空间总量 单位：1G
+  uint64             UseTimeMax        =11;  //每个订单租用时间最大值 单位：天
+  uint64             RenewalTime       =12;  //续费时间，订单到期前多少天可以开始续费。等于0时，不能再续费了 单位：天
+}
+

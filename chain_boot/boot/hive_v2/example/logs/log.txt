@@ -1,0 +1,226 @@
+{"l":"error","钱包文件不存在":"conf/wallet.bin","t":"2025-08-28 08:57:32.879","c":"wallet.go:191"}
+{"l":"info","t":"2025-08-28 08:57:34.300","c":"node.go:131","m":"Local netid is: HIVE2GEq3S9M2hdQi4jSZh3jFws9ka2ZBX1Bawu4e5uzZUt7WKhxEH5"}
+{"l":"warn","t":"2025-08-28 08:57:34.318","c":"node.go:291","m":"当前数据版本号:1"}
+{"l":"info","Listen TCP、HTTP、WS、QUIC to an addr":":25331","t":"2025-08-28 08:57:34.318","c":"engine.go:85"}
+{"l":"info","Listen TCP to an IP":":25331","t":"2025-08-28 08:57:34.318","c":"tcp_listen.go:58"}
+{"l":"info","startUp end":false,"t":"2025-08-28 08:57:42.366","c":"session_conn.go:50"}
+{"l":"info","t":"2025-08-28 08:57:42.366","c":"log.go:49","m":"limiter token total：8000000"}
+{"l":"info","t":"2025-08-28 08:57:42.366","c":"log.go:46","m":"start"}
+{"l":"info","t":"2025-08-28 08:57:42.366","c":"log.go:49","m":"sync ntp time success 2025-08-28 08:57:42"}
+{"l":"info","t":"2025-08-28 08:57:42.366","c":"log.go:49","m":"CPUNUM :10"}
+{"l":"info","t":"2025-08-28 08:57:42.367","c":"log.go:49","m":"NumGoroutine:46"}
+{"l":"info","t":"2025-08-28 08:57:42.367","c":"log.go:49","m":"最低硬件配置检测 darwin arm64\n+----------------+------------------+--------------+\n|   硬件配置项   | 最低硬件配置要求 | 当前硬件配置 |\n+----------------+------------------+--------------+\n| CPU 核心数     | -                | -            |\n+----------------+------------------+--------------+\n| 内存(MB)       | -                | -            |\n+----------------+------------------+--------------+\n| 磁盘(MB)       | -                | -            |\n+----------------+------------------+--------------+\n| 网络带宽(MB/s) | -                | -            |\n+----------------+------------------+--------------+\n"}
+{"l":"info","t":"2025-08-28 08:57:42.383","c":"log.go:49","m":"清除db，key [0 1 1] 数量：0"}
+{"l":"info","t":"2025-08-28 08:57:42.384","c":"log.go:49","m":"清除db，key [0 2] 数量：0"}
+{"l":"info","t":"2025-08-28 08:57:42.384","c":"log.go:49","m":"清除db，key [0 3] 数量：0"}
+{"l":"info","t":"2025-08-28 08:57:42.384","c":"log.go:46","m":"This is an empty database"}
+{"l":"info","t":"2025-08-28 08:57:42.384","c":"log.go:46","m":"---------- 注册区块链模块消息 ----------"}
+{"l":"info","t":"2025-08-28 08:57:42.384","c":"log.go:49","m":"count block group:1 height:1 total:1 57bdfe542553f532efca65cf63c562858b7afa36580c69bb49e61c0b6309041a"}
+{"l":"info","t":"2025-08-28 08:57:42.384","c":"log.go:49","m":"DebugH HashRandom: 0-0 a7ffc6f8bf1ed76651c14756a061d662f580ff4de43b49fa82d80a4b80f8434a"}
+{"l":"info","t":"2025-08-28 08:57:42.385","c":"log.go:49","m":"----\nwg:1 HIVE2GEq3S9M2hdQi4jSZh3jFws9ka2ZBX1Bawu4e5uzZUt7WKhxEH5 1970-01-01 07:00:10 0\n----"}
+{"l":"info","t":"2025-08-28 08:57:42.385","c":"log.go:49","m":"count group:1"}
+{"l":"info","t":"2025-08-28 08:57:42.385","c":"log.go:46","m":"The last group found is empty"}
+{"l":"info","t":"2025-08-28 08:57:42.385","c":"log.go:49","m":"lastblock:1"}
+{"l":"info","t":"2025-08-28 08:57:42.385","c":"log.go:49","m":"DebugH HashRandom: 1-0 1bf51fe189e34343c7cd54ee007a2856ac2e246da3a798ff0c3890d3e84148d4"}
+{"l":"info","t":"2025-08-28 08:57:42.385","c":"log.go:49","m":"----\nwg:2 HIVE2GEq3S9M2hdQi4jSZh3jFws9ka2ZBX1Bawu4e5uzZUt7WKhxEH5 2025-08-28 08:57:52 0\n----"}
+{"l":"info","t":"2025-08-28 08:57:42.385","c":"log.go:49","m":"lastblock:1"}
+{"l":"info","t":"2025-08-28 08:57:42.385","c":"log.go:49","m":"DebugH HashRandom: 1-0 1bf51fe189e34343c7cd54ee007a2856ac2e246da3a798ff0c3890d3e84148d4"}
+{"l":"info","t":"2025-08-28 08:57:42.385","c":"log.go:49","m":"----\nwg:3 HIVE2GEq3S9M2hdQi4jSZh3jFws9ka2ZBX1Bawu4e5uzZUt7WKhxEH5 2025-08-28 08:58:02 0\n----"}
+{"l":"info","t":"2025-08-28 08:57:42.385","c":"log.go:49","m":"lastblock:1"}
+{"l":"info","t":"2025-08-28 08:57:42.385","c":"log.go:49","m":"DebugH HashRandom: 1-0 1bf51fe189e34343c7cd54ee007a2856ac2e246da3a798ff0c3890d3e84148d4"}
+{"l":"info","t":"2025-08-28 08:57:42.385","c":"log.go:49","m":"----\nwg:4 HIVE2GEq3S9M2hdQi4jSZh3jFws9ka2ZBX1Bawu4e5uzZUt7WKhxEH5 2025-08-28 08:58:12 0\n----"}
+{"l":"info","t":"2025-08-28 08:57:42.385","c":"log.go:49","m":"lastblock:1"}
+{"l":"info","t":"2025-08-28 08:57:42.385","c":"log.go:49","m":"DebugH HashRandom: 1-0 1bf51fe189e34343c7cd54ee007a2856ac2e246da3a798ff0c3890d3e84148d4"}
+{"l":"info","t":"2025-08-28 08:57:42.385","c":"log.go:49","m":"----\nwg:5 HIVE2GEq3S9M2hdQi4jSZh3jFws9ka2ZBX1Bawu4e5uzZUt7WKhxEH5 2025-08-28 08:58:22 0\n----"}
+{"l":"info","t":"2025-08-28 08:57:42.385","c":"log.go:49","m":"lastblock:1"}
+{"l":"info","t":"2025-08-28 08:57:42.385","c":"log.go:49","m":"DebugH HashRandom: 1-0 1bf51fe189e34343c7cd54ee007a2856ac2e246da3a798ff0c3890d3e84148d4"}
+{"l":"info","t":"2025-08-28 08:57:42.385","c":"log.go:49","m":"----\nwg:6 HIVE2GEq3S9M2hdQi4jSZh3jFws9ka2ZBX1Bawu4e5uzZUt7WKhxEH5 2025-08-28 08:58:32 0\n----"}
+{"l":"info","t":"2025-08-28 08:57:42.385","c":"log.go:49","m":"lastblock:1"}
+{"l":"info","t":"2025-08-28 08:57:42.385","c":"log.go:49","m":"DebugH HashRandom: 1-0 1bf51fe189e34343c7cd54ee007a2856ac2e246da3a798ff0c3890d3e84148d4"}
+{"l":"info","t":"2025-08-28 08:57:42.385","c":"log.go:49","m":"----\nwg:7 HIVE2GEq3S9M2hdQi4jSZh3jFws9ka2ZBX1Bawu4e5uzZUt7WKhxEH5 2025-08-28 08:58:42 0\n----"}
+{"l":"info","t":"2025-08-28 08:57:42.385","c":"log.go:49","m":"lastblock:1"}
+{"l":"info","t":"2025-08-28 08:57:42.385","c":"log.go:49","m":"DebugH HashRandom: 1-0 1bf51fe189e34343c7cd54ee007a2856ac2e246da3a798ff0c3890d3e84148d4"}
+{"l":"info","t":"2025-08-28 08:57:42.385","c":"log.go:49","m":"----\nwg:8 HIVE2GEq3S9M2hdQi4jSZh3jFws9ka2ZBX1Bawu4e5uzZUt7WKhxEH5 2025-08-28 08:58:52 0\n----"}
+{"l":"info","t":"2025-08-28 08:57:42.385","c":"log.go:49","m":"lastblock:1"}
+{"l":"info","t":"2025-08-28 08:57:42.385","c":"log.go:49","m":"DebugH HashRandom: 1-0 1bf51fe189e34343c7cd54ee007a2856ac2e246da3a798ff0c3890d3e84148d4"}
+{"l":"info","t":"2025-08-28 08:57:42.385","c":"log.go:49","m":"----\nwg:9 HIVE2GEq3S9M2hdQi4jSZh3jFws9ka2ZBX1Bawu4e5uzZUt7WKhxEH5 2025-08-28 08:59:02 0\n----"}
+{"l":"info","t":"2025-08-28 08:57:42.385","c":"log.go:49","m":"lastblock:1"}
+{"l":"info","t":"2025-08-28 08:57:42.385","c":"log.go:49","m":"DebugH HashRandom: 1-0 1bf51fe189e34343c7cd54ee007a2856ac2e246da3a798ff0c3890d3e84148d4"}
+{"l":"info","t":"2025-08-28 08:57:42.385","c":"log.go:49","m":"----\nwg:10 HIVE2GEq3S9M2hdQi4jSZh3jFws9ka2ZBX1Bawu4e5uzZUt7WKhxEH5 2025-08-28 08:59:12 0\n----"}
+{"l":"info","t":"2025-08-28 08:57:42.385","c":"log.go:49","m":"lastblock:1"}
+{"l":"info","t":"2025-08-28 08:57:42.385","c":"log.go:49","m":"DebugH HashRandom: 1-0 1bf51fe189e34343c7cd54ee007a2856ac2e246da3a798ff0c3890d3e84148d4"}
+{"l":"info","t":"2025-08-28 08:57:42.385","c":"log.go:49","m":"----\nwg:11 HIVE2GEq3S9M2hdQi4jSZh3jFws9ka2ZBX1Bawu4e5uzZUt7WKhxEH5 2025-08-28 08:59:22 0\n----"}
+{"l":"info","t":"2025-08-28 08:57:42.385","c":"log.go:49","m":"lastblock:1"}
+{"l":"info","t":"2025-08-28 08:57:42.385","c":"log.go:49","m":"DebugH HashRandom: 1-0 1bf51fe189e34343c7cd54ee007a2856ac2e246da3a798ff0c3890d3e84148d4"}
+{"l":"info","t":"2025-08-28 08:57:42.385","c":"log.go:49","m":"----\nwg:12 HIVE2GEq3S9M2hdQi4jSZh3jFws9ka2ZBX1Bawu4e5uzZUt7WKhxEH5 2025-08-28 08:59:32 0\n----"}
+{"l":"info","t":"2025-08-28 08:57:42.385","c":"log.go:49","m":"lastblock:1"}
+{"l":"info","t":"2025-08-28 08:57:42.385","c":"log.go:49","m":"DebugH HashRandom: 1-0 1bf51fe189e34343c7cd54ee007a2856ac2e246da3a798ff0c3890d3e84148d4"}
+{"l":"info","t":"2025-08-28 08:57:42.385","c":"log.go:49","m":"----\nwg:13 HIVE2GEq3S9M2hdQi4jSZh3jFws9ka2ZBX1Bawu4e5uzZUt7WKhxEH5 2025-08-28 08:59:42 0\n----"}
+{"l":"info","t":"2025-08-28 08:57:42.385","c":"log.go:49","m":"lastblock:1"}
+{"l":"info","t":"2025-08-28 08:57:42.385","c":"log.go:49","m":"DebugH HashRandom: 1-0 1bf51fe189e34343c7cd54ee007a2856ac2e246da3a798ff0c3890d3e84148d4"}
+{"l":"info","t":"2025-08-28 08:57:42.385","c":"log.go:49","m":"----\nwg:14 HIVE2GEq3S9M2hdQi4jSZh3jFws9ka2ZBX1Bawu4e5uzZUt7WKhxEH5 2025-08-28 08:59:52 0\n----"}
+{"l":"info","t":"2025-08-28 08:57:42.385","c":"log.go:49","m":"lastblock:1"}
+{"l":"info","t":"2025-08-28 08:57:42.385","c":"log.go:49","m":"DebugH HashRandom: 1-0 1bf51fe189e34343c7cd54ee007a2856ac2e246da3a798ff0c3890d3e84148d4"}
+{"l":"info","t":"2025-08-28 08:57:42.385","c":"log.go:49","m":"----\nwg:15 HIVE2GEq3S9M2hdQi4jSZh3jFws9ka2ZBX1Bawu4e5uzZUt7WKhxEH5 2025-08-28 09:00:02 0\n----"}
+{"l":"info","t":"2025-08-28 08:57:42.385","c":"log.go:49","m":"lastblock:1"}
+{"l":"info","t":"2025-08-28 08:57:42.385","c":"log.go:49","m":"DebugH HashRandom: 1-0 1bf51fe189e34343c7cd54ee007a2856ac2e246da3a798ff0c3890d3e84148d4"}
+{"l":"info","t":"2025-08-28 08:57:42.385","c":"log.go:49","m":"----\nwg:16 HIVE2GEq3S9M2hdQi4jSZh3jFws9ka2ZBX1Bawu4e5uzZUt7WKhxEH5 2025-08-28 09:00:12 0\n----"}
+{"l":"info","t":"2025-08-28 08:57:42.385","c":"log.go:49","m":"lastblock:1"}
+{"l":"info","t":"2025-08-28 08:57:42.385","c":"log.go:49","m":"DebugH HashRandom: 1-0 1bf51fe189e34343c7cd54ee007a2856ac2e246da3a798ff0c3890d3e84148d4"}
+{"l":"info","t":"2025-08-28 08:57:42.385","c":"log.go:49","m":"----\nwg:17 HIVE2GEq3S9M2hdQi4jSZh3jFws9ka2ZBX1Bawu4e5uzZUt7WKhxEH5 2025-08-28 09:00:22 0\n----"}
+{"l":"info","t":"2025-08-28 08:57:42.385","c":"log.go:49","m":"lastblock:1"}
+{"l":"info","t":"2025-08-28 08:57:42.385","c":"log.go:49","m":"DebugH HashRandom: 1-0 1bf51fe189e34343c7cd54ee007a2856ac2e246da3a798ff0c3890d3e84148d4"}
+{"l":"info","t":"2025-08-28 08:57:42.385","c":"log.go:49","m":"----\nwg:18 HIVE2GEq3S9M2hdQi4jSZh3jFws9ka2ZBX1Bawu4e5uzZUt7WKhxEH5 2025-08-28 09:00:32 0\n----"}
+{"l":"info","t":"2025-08-28 08:57:42.385","c":"log.go:49","m":"lastblock:1"}
+{"l":"info","t":"2025-08-28 08:57:42.385","c":"log.go:49","m":"DebugH HashRandom: 1-0 1bf51fe189e34343c7cd54ee007a2856ac2e246da3a798ff0c3890d3e84148d4"}
+{"l":"info","t":"2025-08-28 08:57:42.385","c":"log.go:49","m":"----\nwg:19 HIVE2GEq3S9M2hdQi4jSZh3jFws9ka2ZBX1Bawu4e5uzZUt7WKhxEH5 2025-08-28 09:00:42 0\n----"}
+{"l":"info","t":"2025-08-28 08:57:42.385","c":"log.go:49","m":"lastblock:1"}
+{"l":"info","t":"2025-08-28 08:57:42.385","c":"log.go:49","m":"DebugH HashRandom: 1-0 1bf51fe189e34343c7cd54ee007a2856ac2e246da3a798ff0c3890d3e84148d4"}
+{"l":"info","t":"2025-08-28 08:57:42.385","c":"log.go:49","m":"----\nwg:20 HIVE2GEq3S9M2hdQi4jSZh3jFws9ka2ZBX1Bawu4e5uzZUt7WKhxEH5 2025-08-28 09:00:52 0\n----"}
+{"l":"info","t":"2025-08-28 08:57:42.385","c":"log.go:49","m":"lastblock:1"}
+{"l":"info","t":"2025-08-28 08:57:42.385","c":"log.go:49","m":"DebugH HashRandom: 1-0 1bf51fe189e34343c7cd54ee007a2856ac2e246da3a798ff0c3890d3e84148d4"}
+{"l":"info","t":"2025-08-28 08:57:42.385","c":"log.go:49","m":"----\nwg:21 HIVE2GEq3S9M2hdQi4jSZh3jFws9ka2ZBX1Bawu4e5uzZUt7WKhxEH5 2025-08-28 09:01:02 0\n----"}
+{"l":"info","t":"2025-08-28 08:57:42.385","c":"log.go:49","m":"lastblock:1"}
+{"l":"info","t":"2025-08-28 08:57:42.385","c":"log.go:49","m":"DebugH HashRandom: 1-0 1bf51fe189e34343c7cd54ee007a2856ac2e246da3a798ff0c3890d3e84148d4"}
+{"l":"info","t":"2025-08-28 08:57:42.385","c":"log.go:49","m":"----\nwg:22 HIVE2GEq3S9M2hdQi4jSZh3jFws9ka2ZBX1Bawu4e5uzZUt7WKhxEH5 2025-08-28 09:01:12 0\n----"}
+{"l":"info","t":"2025-08-28 08:57:42.385","c":"log.go:49","m":"lastblock:1"}
+{"l":"info","t":"2025-08-28 08:57:42.385","c":"log.go:49","m":"DebugH HashRandom: 1-0 1bf51fe189e34343c7cd54ee007a2856ac2e246da3a798ff0c3890d3e84148d4"}
+{"l":"info","t":"2025-08-28 08:57:42.385","c":"log.go:49","m":"----\nwg:23 HIVE2GEq3S9M2hdQi4jSZh3jFws9ka2ZBX1Bawu4e5uzZUt7WKhxEH5 2025-08-28 09:01:22 0\n----"}
+{"l":"info","t":"2025-08-28 08:57:42.385","c":"log.go:49","m":"lastblock:1"}
+{"l":"info","t":"2025-08-28 08:57:42.385","c":"log.go:49","m":"DebugH HashRandom: 1-0 1bf51fe189e34343c7cd54ee007a2856ac2e246da3a798ff0c3890d3e84148d4"}
+{"l":"info","t":"2025-08-28 08:57:42.385","c":"log.go:49","m":"----\nwg:24 HIVE2GEq3S9M2hdQi4jSZh3jFws9ka2ZBX1Bawu4e5uzZUt7WKhxEH5 2025-08-28 09:01:32 0\n----"}
+{"l":"info","t":"2025-08-28 08:57:42.385","c":"log.go:49","m":"lastblock:1"}
+{"l":"info","t":"2025-08-28 08:57:42.385","c":"log.go:49","m":"DebugH HashRandom: 1-0 1bf51fe189e34343c7cd54ee007a2856ac2e246da3a798ff0c3890d3e84148d4"}
+{"l":"info","t":"2025-08-28 08:57:42.385","c":"log.go:49","m":"----\nwg:25 HIVE2GEq3S9M2hdQi4jSZh3jFws9ka2ZBX1Bawu4e5uzZUt7WKhxEH5 2025-08-28 09:01:42 0\n----"}
+{"l":"info","t":"2025-08-28 08:57:42.385","c":"log.go:49","m":"lastblock:1"}
+{"l":"info","t":"2025-08-28 08:57:42.385","c":"log.go:49","m":"DebugH HashRandom: 1-0 1bf51fe189e34343c7cd54ee007a2856ac2e246da3a798ff0c3890d3e84148d4"}
+{"l":"info","t":"2025-08-28 08:57:42.385","c":"log.go:49","m":"----\nwg:26 HIVE2GEq3S9M2hdQi4jSZh3jFws9ka2ZBX1Bawu4e5uzZUt7WKhxEH5 2025-08-28 09:01:52 0\n----"}
+{"l":"info","t":"2025-08-28 08:57:42.385","c":"log.go:49","m":"lastblock:1"}
+{"l":"info","t":"2025-08-28 08:57:42.385","c":"log.go:49","m":"DebugH HashRandom: 1-0 1bf51fe189e34343c7cd54ee007a2856ac2e246da3a798ff0c3890d3e84148d4"}
+{"l":"info","t":"2025-08-28 08:57:42.385","c":"log.go:49","m":"----\nwg:27 HIVE2GEq3S9M2hdQi4jSZh3jFws9ka2ZBX1Bawu4e5uzZUt7WKhxEH5 2025-08-28 09:02:02 0\n----"}
+{"l":"info","t":"2025-08-28 08:57:42.385","c":"log.go:49","m":"lastblock:1"}
+{"l":"info","t":"2025-08-28 08:57:42.385","c":"log.go:49","m":"DebugH HashRandom: 1-0 1bf51fe189e34343c7cd54ee007a2856ac2e246da3a798ff0c3890d3e84148d4"}
+{"l":"info","t":"2025-08-28 08:57:42.385","c":"log.go:49","m":"----\nwg:28 HIVE2GEq3S9M2hdQi4jSZh3jFws9ka2ZBX1Bawu4e5uzZUt7WKhxEH5 2025-08-28 09:02:12 0\n----"}
+{"l":"info","t":"2025-08-28 08:57:42.386","c":"log.go:49","m":"lastblock:1"}
+{"l":"info","t":"2025-08-28 08:57:42.386","c":"log.go:49","m":"DebugH HashRandom: 1-0 1bf51fe189e34343c7cd54ee007a2856ac2e246da3a798ff0c3890d3e84148d4"}
+{"l":"info","t":"2025-08-28 08:57:42.386","c":"log.go:49","m":"----\nwg:29 HIVE2GEq3S9M2hdQi4jSZh3jFws9ka2ZBX1Bawu4e5uzZUt7WKhxEH5 2025-08-28 09:02:22 0\n----"}
+{"l":"info","t":"2025-08-28 08:57:42.386","c":"log.go:49","m":"lastblock:1"}
+{"l":"info","t":"2025-08-28 08:57:42.386","c":"log.go:49","m":"DebugH HashRandom: 1-0 1bf51fe189e34343c7cd54ee007a2856ac2e246da3a798ff0c3890d3e84148d4"}
+{"l":"info","t":"2025-08-28 08:57:42.386","c":"log.go:49","m":"----\nwg:30 HIVE2GEq3S9M2hdQi4jSZh3jFws9ka2ZBX1Bawu4e5uzZUt7WKhxEH5 2025-08-28 09:02:32 0\n----"}
+{"l":"info","t":"2025-08-28 08:57:42.386","c":"log.go:49","m":"lastblock:1"}
+{"l":"info","t":"2025-08-28 08:57:42.386","c":"log.go:49","m":"DebugH HashRandom: 1-0 1bf51fe189e34343c7cd54ee007a2856ac2e246da3a798ff0c3890d3e84148d4"}
+{"l":"info","t":"2025-08-28 08:57:42.386","c":"log.go:49","m":"----\nwg:31 HIVE2GEq3S9M2hdQi4jSZh3jFws9ka2ZBX1Bawu4e5uzZUt7WKhxEH5 2025-08-28 09:02:42 0\n----"}
+{"l":"info","t":"2025-08-28 08:57:42.386","c":"log.go:49","m":"lastblock:1"}
+{"l":"info","t":"2025-08-28 08:57:42.386","c":"log.go:49","m":"DebugH HashRandom: 1-0 1bf51fe189e34343c7cd54ee007a2856ac2e246da3a798ff0c3890d3e84148d4"}
+{"l":"info","t":"2025-08-28 08:57:42.386","c":"log.go:49","m":"----\nwg:32 HIVE2GEq3S9M2hdQi4jSZh3jFws9ka2ZBX1Bawu4e5uzZUt7WKhxEH5 2025-08-28 09:02:52 0\n----"}
+{"l":"info","t":"2025-08-28 08:57:42.386","c":"log.go:49","m":"lastblock:1"}
+{"l":"info","t":"2025-08-28 08:57:42.386","c":"log.go:49","m":"DebugH HashRandom: 1-0 1bf51fe189e34343c7cd54ee007a2856ac2e246da3a798ff0c3890d3e84148d4"}
+{"l":"info","t":"2025-08-28 08:57:42.386","c":"log.go:49","m":"----\nwg:33 HIVE2GEq3S9M2hdQi4jSZh3jFws9ka2ZBX1Bawu4e5uzZUt7WKhxEH5 2025-08-28 09:03:02 0\n----"}
+{"l":"info","t":"2025-08-28 08:57:42.386","c":"log.go:49","m":"lastblock:1"}
+{"l":"info","t":"2025-08-28 08:57:42.386","c":"log.go:49","m":"DebugH HashRandom: 1-0 1bf51fe189e34343c7cd54ee007a2856ac2e246da3a798ff0c3890d3e84148d4"}
+{"l":"info","t":"2025-08-28 08:57:42.386","c":"log.go:49","m":"----\nwg:34 HIVE2GEq3S9M2hdQi4jSZh3jFws9ka2ZBX1Bawu4e5uzZUt7WKhxEH5 2025-08-28 09:03:12 0\n----"}
+{"l":"info","t":"2025-08-28 08:57:42.386","c":"log.go:49","m":"lastblock:1"}
+{"l":"info","t":"2025-08-28 08:57:42.386","c":"log.go:49","m":"DebugH HashRandom: 1-0 1bf51fe189e34343c7cd54ee007a2856ac2e246da3a798ff0c3890d3e84148d4"}
+{"l":"info","t":"2025-08-28 08:57:42.386","c":"log.go:49","m":"----\nwg:35 HIVE2GEq3S9M2hdQi4jSZh3jFws9ka2ZBX1Bawu4e5uzZUt7WKhxEH5 2025-08-28 09:03:22 0\n----"}
+{"l":"info","t":"2025-08-28 08:57:42.386","c":"log.go:49","m":"lastblock:1"}
+{"l":"info","t":"2025-08-28 08:57:42.386","c":"log.go:49","m":"DebugH HashRandom: 1-0 1bf51fe189e34343c7cd54ee007a2856ac2e246da3a798ff0c3890d3e84148d4"}
+{"l":"info","t":"2025-08-28 08:57:42.386","c":"log.go:49","m":"----\nwg:36 HIVE2GEq3S9M2hdQi4jSZh3jFws9ka2ZBX1Bawu4e5uzZUt7WKhxEH5 2025-08-28 09:03:32 0\n----"}
+{"l":"info","t":"2025-08-28 08:57:42.386","c":"log.go:49","m":"lastblock:1"}
+{"l":"info","t":"2025-08-28 08:57:42.386","c":"log.go:49","m":"DebugH HashRandom: 1-0 1bf51fe189e34343c7cd54ee007a2856ac2e246da3a798ff0c3890d3e84148d4"}
+{"l":"info","t":"2025-08-28 08:57:42.386","c":"log.go:49","m":"----\nwg:37 HIVE2GEq3S9M2hdQi4jSZh3jFws9ka2ZBX1Bawu4e5uzZUt7WKhxEH5 2025-08-28 09:03:42 0\n----"}
+{"l":"info","t":"2025-08-28 08:57:42.386","c":"log.go:49","m":"lastblock:1"}
+{"l":"info","t":"2025-08-28 08:57:42.386","c":"log.go:49","m":"DebugH HashRandom: 1-0 1bf51fe189e34343c7cd54ee007a2856ac2e246da3a798ff0c3890d3e84148d4"}
+{"l":"info","t":"2025-08-28 08:57:42.386","c":"log.go:49","m":"----\nwg:38 HIVE2GEq3S9M2hdQi4jSZh3jFws9ka2ZBX1Bawu4e5uzZUt7WKhxEH5 2025-08-28 09:03:52 0\n----"}
+{"l":"info","t":"2025-08-28 08:57:42.386","c":"log.go:49","m":"lastblock:1"}
+{"l":"info","t":"2025-08-28 08:57:42.386","c":"log.go:49","m":"DebugH HashRandom: 1-0 1bf51fe189e34343c7cd54ee007a2856ac2e246da3a798ff0c3890d3e84148d4"}
+{"l":"info","t":"2025-08-28 08:57:42.386","c":"log.go:49","m":"----\nwg:39 HIVE2GEq3S9M2hdQi4jSZh3jFws9ka2ZBX1Bawu4e5uzZUt7WKhxEH5 2025-08-28 09:04:02 0\n----"}
+{"l":"info","t":"2025-08-28 08:57:42.386","c":"log.go:49","m":"lastblock:1"}
+{"l":"info","t":"2025-08-28 08:57:42.386","c":"log.go:49","m":"DebugH HashRandom: 1-0 1bf51fe189e34343c7cd54ee007a2856ac2e246da3a798ff0c3890d3e84148d4"}
+{"l":"info","t":"2025-08-28 08:57:42.386","c":"log.go:49","m":"----\nwg:40 HIVE2GEq3S9M2hdQi4jSZh3jFws9ka2ZBX1Bawu4e5uzZUt7WKhxEH5 2025-08-28 09:04:12 0\n----"}
+{"l":"info","t":"2025-08-28 08:57:42.386","c":"log.go:49","m":"lastblock:1"}
+{"l":"info","t":"2025-08-28 08:57:42.386","c":"log.go:49","m":"DebugH HashRandom: 1-0 1bf51fe189e34343c7cd54ee007a2856ac2e246da3a798ff0c3890d3e84148d4"}
+{"l":"info","t":"2025-08-28 08:57:42.386","c":"log.go:49","m":"----\nwg:41 HIVE2GEq3S9M2hdQi4jSZh3jFws9ka2ZBX1Bawu4e5uzZUt7WKhxEH5 2025-08-28 09:04:22 0\n----"}
+{"l":"info","t":"2025-08-28 08:57:42.386","c":"log.go:49","m":"lastblock:1"}
+{"l":"info","t":"2025-08-28 08:57:42.386","c":"log.go:49","m":"DebugH HashRandom: 1-0 1bf51fe189e34343c7cd54ee007a2856ac2e246da3a798ff0c3890d3e84148d4"}
+{"l":"info","t":"2025-08-28 08:57:42.386","c":"log.go:49","m":"----\nwg:42 HIVE2GEq3S9M2hdQi4jSZh3jFws9ka2ZBX1Bawu4e5uzZUt7WKhxEH5 2025-08-28 09:04:32 0\n----"}
+{"l":"info","t":"2025-08-28 08:57:42.386","c":"log.go:49","m":"lastblock:1"}
+{"l":"info","t":"2025-08-28 08:57:42.386","c":"log.go:49","m":"DebugH HashRandom: 1-0 1bf51fe189e34343c7cd54ee007a2856ac2e246da3a798ff0c3890d3e84148d4"}
+{"l":"info","t":"2025-08-28 08:57:42.386","c":"log.go:49","m":"----\nwg:43 HIVE2GEq3S9M2hdQi4jSZh3jFws9ka2ZBX1Bawu4e5uzZUt7WKhxEH5 2025-08-28 09:04:42 0\n----"}
+{"l":"info","t":"2025-08-28 08:57:42.386","c":"log.go:49","m":"lastblock:1"}
+{"l":"info","t":"2025-08-28 08:57:42.386","c":"log.go:49","m":"DebugH HashRandom: 1-0 1bf51fe189e34343c7cd54ee007a2856ac2e246da3a798ff0c3890d3e84148d4"}
+{"l":"info","t":"2025-08-28 08:57:42.386","c":"log.go:49","m":"----\nwg:44 HIVE2GEq3S9M2hdQi4jSZh3jFws9ka2ZBX1Bawu4e5uzZUt7WKhxEH5 2025-08-28 09:04:52 0\n----"}
+{"l":"info","t":"2025-08-28 08:57:42.386","c":"log.go:49","m":"lastblock:1"}
+{"l":"info","t":"2025-08-28 08:57:42.386","c":"log.go:49","m":"DebugH HashRandom: 1-0 1bf51fe189e34343c7cd54ee007a2856ac2e246da3a798ff0c3890d3e84148d4"}
+{"l":"info","t":"2025-08-28 08:57:42.386","c":"log.go:49","m":"----\nwg:45 HIVE2GEq3S9M2hdQi4jSZh3jFws9ka2ZBX1Bawu4e5uzZUt7WKhxEH5 2025-08-28 09:05:02 0\n----"}
+{"l":"info","t":"2025-08-28 08:57:42.386","c":"log.go:49","m":"lastblock:1"}
+{"l":"info","t":"2025-08-28 08:57:42.386","c":"log.go:49","m":"DebugH HashRandom: 1-0 1bf51fe189e34343c7cd54ee007a2856ac2e246da3a798ff0c3890d3e84148d4"}
+{"l":"info","t":"2025-08-28 08:57:42.386","c":"log.go:49","m":"----\nwg:46 HIVE2GEq3S9M2hdQi4jSZh3jFws9ka2ZBX1Bawu4e5uzZUt7WKhxEH5 2025-08-28 09:05:12 0\n----"}
+{"l":"info","t":"2025-08-28 08:57:42.386","c":"log.go:49","m":"lastblock:1"}
+{"l":"info","t":"2025-08-28 08:57:42.386","c":"log.go:49","m":"DebugH HashRandom: 1-0 1bf51fe189e34343c7cd54ee007a2856ac2e246da3a798ff0c3890d3e84148d4"}
+{"l":"info","t":"2025-08-28 08:57:42.386","c":"log.go:49","m":"----\nwg:47 HIVE2GEq3S9M2hdQi4jSZh3jFws9ka2ZBX1Bawu4e5uzZUt7WKhxEH5 2025-08-28 09:05:22 0\n----"}
+{"l":"info","t":"2025-08-28 08:57:42.386","c":"log.go:49","m":"lastblock:1"}
+{"l":"info","t":"2025-08-28 08:57:42.386","c":"log.go:49","m":"DebugH HashRandom: 1-0 1bf51fe189e34343c7cd54ee007a2856ac2e246da3a798ff0c3890d3e84148d4"}
+{"l":"info","t":"2025-08-28 08:57:42.386","c":"log.go:49","m":"----\nwg:48 HIVE2GEq3S9M2hdQi4jSZh3jFws9ka2ZBX1Bawu4e5uzZUt7WKhxEH5 2025-08-28 09:05:32 0\n----"}
+{"l":"info","t":"2025-08-28 08:57:42.386","c":"log.go:49","m":"lastblock:1"}
+{"l":"info","t":"2025-08-28 08:57:42.386","c":"log.go:49","m":"DebugH HashRandom: 1-0 1bf51fe189e34343c7cd54ee007a2856ac2e246da3a798ff0c3890d3e84148d4"}
+{"l":"info","t":"2025-08-28 08:57:42.386","c":"log.go:49","m":"----\nwg:49 HIVE2GEq3S9M2hdQi4jSZh3jFws9ka2ZBX1Bawu4e5uzZUt7WKhxEH5 2025-08-28 09:05:42 0\n----"}
+{"l":"info","t":"2025-08-28 08:57:42.386","c":"log.go:49","m":"lastblock:1"}
+{"l":"info","t":"2025-08-28 08:57:42.386","c":"log.go:49","m":"DebugH HashRandom: 1-0 1bf51fe189e34343c7cd54ee007a2856ac2e246da3a798ff0c3890d3e84148d4"}
+{"l":"info","t":"2025-08-28 08:57:42.386","c":"log.go:49","m":"----\nwg:50 HIVE2GEq3S9M2hdQi4jSZh3jFws9ka2ZBX1Bawu4e5uzZUt7WKhxEH5 2025-08-28 09:05:52 0\n----"}
+{"l":"info","t":"2025-08-28 08:57:42.386","c":"log.go:49","m":"lastblock:1"}
+{"l":"info","t":"2025-08-28 08:57:42.386","c":"log.go:49","m":"DebugH HashRandom: 1-0 1bf51fe189e34343c7cd54ee007a2856ac2e246da3a798ff0c3890d3e84148d4"}
+{"l":"info","t":"2025-08-28 08:57:42.386","c":"log.go:49","m":"----\nwg:51 HIVE2GEq3S9M2hdQi4jSZh3jFws9ka2ZBX1Bawu4e5uzZUt7WKhxEH5 2025-08-28 09:06:02 0\n----"}
+{"l":"info","t":"2025-08-28 08:57:42.386","c":"log.go:49","m":"lastblock:1"}
+{"l":"info","t":"2025-08-28 08:57:42.386","c":"log.go:49","m":"DebugH HashRandom: 1-0 1bf51fe189e34343c7cd54ee007a2856ac2e246da3a798ff0c3890d3e84148d4"}
+{"l":"info","t":"2025-08-28 08:57:42.386","c":"log.go:49","m":"----\nwg:52 HIVE2GEq3S9M2hdQi4jSZh3jFws9ka2ZBX1Bawu4e5uzZUt7WKhxEH5 2025-08-28 09:06:12 0\n----"}
+{"l":"info","t":"2025-08-28 08:57:42.386","c":"log.go:49","m":"lastblock:1"}
+{"l":"info","t":"2025-08-28 08:57:42.386","c":"log.go:49","m":"DebugH HashRandom: 1-0 1bf51fe189e34343c7cd54ee007a2856ac2e246da3a798ff0c3890d3e84148d4"}
+{"l":"info","t":"2025-08-28 08:57:42.386","c":"log.go:49","m":"----\nwg:53 HIVE2GEq3S9M2hdQi4jSZh3jFws9ka2ZBX1Bawu4e5uzZUt7WKhxEH5 2025-08-28 09:06:22 0\n----"}
+{"l":"info","t":"2025-08-28 08:57:42.386","c":"log.go:49","m":"lastblock:1"}
+{"l":"info","t":"2025-08-28 08:57:42.386","c":"log.go:49","m":"DebugH HashRandom: 1-0 1bf51fe189e34343c7cd54ee007a2856ac2e246da3a798ff0c3890d3e84148d4"}
+{"l":"info","t":"2025-08-28 08:57:42.386","c":"log.go:49","m":"----\nwg:54 HIVE2GEq3S9M2hdQi4jSZh3jFws9ka2ZBX1Bawu4e5uzZUt7WKhxEH5 2025-08-28 09:06:32 0\n----"}
+{"l":"info","t":"2025-08-28 08:57:42.386","c":"log.go:49","m":"lastblock:1"}
+{"l":"info","t":"2025-08-28 08:57:42.386","c":"log.go:49","m":"DebugH HashRandom: 1-0 1bf51fe189e34343c7cd54ee007a2856ac2e246da3a798ff0c3890d3e84148d4"}
+{"l":"info","t":"2025-08-28 08:57:42.386","c":"log.go:49","m":"----\nwg:55 HIVE2GEq3S9M2hdQi4jSZh3jFws9ka2ZBX1Bawu4e5uzZUt7WKhxEH5 2025-08-28 09:06:42 0\n----"}
+{"l":"info","t":"2025-08-28 08:57:42.386","c":"log.go:49","m":"lastblock:1"}
+{"l":"info","t":"2025-08-28 08:57:42.386","c":"log.go:49","m":"DebugH HashRandom: 1-0 1bf51fe189e34343c7cd54ee007a2856ac2e246da3a798ff0c3890d3e84148d4"}
+{"l":"info","t":"2025-08-28 08:57:42.386","c":"log.go:49","m":"----\nwg:56 HIVE2GEq3S9M2hdQi4jSZh3jFws9ka2ZBX1Bawu4e5uzZUt7WKhxEH5 2025-08-28 09:06:52 0\n----"}
+{"l":"info","t":"2025-08-28 08:57:42.386","c":"log.go:49","m":"lastblock:1"}
+{"l":"info","t":"2025-08-28 08:57:42.386","c":"log.go:49","m":"DebugH HashRandom: 1-0 1bf51fe189e34343c7cd54ee007a2856ac2e246da3a798ff0c3890d3e84148d4"}
+{"l":"info","t":"2025-08-28 08:57:42.386","c":"log.go:49","m":"----\nwg:57 HIVE2GEq3S9M2hdQi4jSZh3jFws9ka2ZBX1Bawu4e5uzZUt7WKhxEH5 2025-08-28 09:07:02 0\n----"}
+{"l":"info","t":"2025-08-28 08:57:42.386","c":"log.go:49","m":"lastblock:1"}
+{"l":"info","t":"2025-08-28 08:57:42.386","c":"log.go:49","m":"DebugH HashRandom: 1-0 1bf51fe189e34343c7cd54ee007a2856ac2e246da3a798ff0c3890d3e84148d4"}
+{"l":"info","t":"2025-08-28 08:57:42.386","c":"log.go:49","m":"----\nwg:58 HIVE2GEq3S9M2hdQi4jSZh3jFws9ka2ZBX1Bawu4e5uzZUt7WKhxEH5 2025-08-28 09:07:12 0\n----"}
+{"l":"info","t":"2025-08-28 08:57:42.386","c":"log.go:49","m":"lastblock:1"}
+{"l":"info","t":"2025-08-28 08:57:42.386","c":"log.go:49","m":"DebugH HashRandom: 1-0 1bf51fe189e34343c7cd54ee007a2856ac2e246da3a798ff0c3890d3e84148d4"}
+{"l":"info","t":"2025-08-28 08:57:42.386","c":"log.go:49","m":"----\nwg:59 HIVE2GEq3S9M2hdQi4jSZh3jFws9ka2ZBX1Bawu4e5uzZUt7WKhxEH5 2025-08-28 09:07:22 0\n----"}
+{"l":"info","t":"2025-08-28 08:57:42.386","c":"log.go:49","m":"lastblock:1"}
+{"l":"info","t":"2025-08-28 08:57:42.386","c":"log.go:49","m":"DebugH HashRandom: 1-0 1bf51fe189e34343c7cd54ee007a2856ac2e246da3a798ff0c3890d3e84148d4"}
+{"l":"info","t":"2025-08-28 08:57:42.386","c":"log.go:49","m":"----\nwg:60 HIVE2GEq3S9M2hdQi4jSZh3jFws9ka2ZBX1Bawu4e5uzZUt7WKhxEH5 2025-08-28 09:07:32 0\n----"}
+{"l":"info","t":"2025-08-28 08:57:42.386","c":"log.go:49","m":"lastblock:1"}
+{"l":"info","t":"2025-08-28 08:57:42.387","c":"log.go:49","m":"DebugH HashRandom: 1-0 1bf51fe189e34343c7cd54ee007a2856ac2e246da3a798ff0c3890d3e84148d4"}
+{"l":"info","t":"2025-08-28 08:57:42.387","c":"log.go:49","m":"----\nwg:61 HIVE2GEq3S9M2hdQi4jSZh3jFws9ka2ZBX1Bawu4e5uzZUt7WKhxEH5 2025-08-28 09:07:42 0\n----"}
+{"l":"info","t":"2025-08-28 08:57:42.387","c":"log.go:49","m":"lastblock:1"}
+{"l":"info","t":"2025-08-28 08:57:42.387","c":"log.go:49","m":"DebugH HashRandom: 1-0 1bf51fe189e34343c7cd54ee007a2856ac2e246da3a798ff0c3890d3e84148d4"}
+{"l":"info","t":"2025-08-28 08:57:42.387","c":"log.go:49","m":"----\nwg:62 HIVE2GEq3S9M2hdQi4jSZh3jFws9ka2ZBX1Bawu4e5uzZUt7WKhxEH5 2025-08-28 09:07:52 0\n----"}
+{"l":"info","t":"2025-08-28 08:57:51.965","c":"log.go:49","m":"=== build block === group:2 height:2"}
+{"l":"info","t":"2025-08-28 08:57:51.966","c":"log.go:49","m":"未签名见证人地址: HIVE2GEq3S9M2hdQi4jSZh3jFws9ka2ZBX1Bawu4e5uzZUt7WKhxEH5"}
+{"l":"info","t":"2025-08-28 08:57:51.966","c":"log.go:49","m":"签名的总量0，排序后的量0,见证人总数1,应该签名成功数量0"}
+{"l":"info","t":"2025-08-28 08:57:51.966","c":"log.go:49","m":"+++ build block Success hash:936381acb3c0c1bf4e49008744dd06de5cfc21552b72d354692d8b5a434d0347 group:2 height:2 preHash:57bdfe542553f532efca65cf63c562858b7afa36580c69bb49e61c0b6309041a 499.458µs"}
+{"l":"info","t":"2025-08-28 08:57:51.966","c":"log.go:49","m":"====== Import block group:2 block:2 prehash:57bdfe542553f532efca65cf63c562858b7afa36580c69bb49e61c0b6309041a hash:936381acb3c0c1bf4e49008744dd06de5cfc21552b72d354692d8b5a434d0347 witness:HIVE2GEq3S9M2hdQi4jSZh3jFws9ka2ZBX1Bawu4e5uzZUt7WKhxEH5"}
+{"l":"info","t":"2025-08-28 08:57:51.966","c":"log.go:49","m":"count group:1 preblockhash:57bdfe542553f532efca65cf63c562858b7afa36580c69bb49e61c0b6309041a"}
+{"l":"info","t":"2025-08-28 08:57:52.384","c":"log.go:49","m":"清理swap缓存池 count:0"}
+{"l":"info","t":"2025-08-28 08:58:01.965","c":"log.go:49","m":"=== build block === group:3 height:3"}
+{"l":"info","t":"2025-08-28 08:58:01.966","c":"log.go:49","m":"未签名见证人地址: HIVE2GEq3S9M2hdQi4jSZh3jFws9ka2ZBX1Bawu4e5uzZUt7WKhxEH5"}
+{"l":"info","t":"2025-08-28 08:58:01.966","c":"log.go:49","m":"签名的总量0，排序后的量0,见证人总数1,应该签名成功数量0"}
+{"l":"info","t":"2025-08-28 08:58:01.966","c":"log.go:49","m":"+++ build block Success hash:04d0c2eedee2bab9fd346cd84b31ae2acbb18807ed6070757dbaf9e7841702dc group:3 height:3 preHash:936381acb3c0c1bf4e49008744dd06de5cfc21552b72d354692d8b5a434d0347 335.584µs"}
+{"l":"info","t":"2025-08-28 08:58:01.966","c":"log.go:49","m":"====== Import block group:3 block:3 prehash:936381acb3c0c1bf4e49008744dd06de5cfc21552b72d354692d8b5a434d0347 hash:04d0c2eedee2bab9fd346cd84b31ae2acbb18807ed6070757dbaf9e7841702dc witness:HIVE2GEq3S9M2hdQi4jSZh3jFws9ka2ZBX1Bawu4e5uzZUt7WKhxEH5"}
+{"l":"info","t":"2025-08-28 08:58:01.966","c":"log.go:49","m":"count group:2 preblockhash:936381acb3c0c1bf4e49008744dd06de5cfc21552b72d354692d8b5a434d0347"}
+{"l":"info","t":"2025-08-28 08:58:01.966","c":"log.go:49","m":"count block group:2 height:2 total:2 936381acb3c0c1bf4e49008744dd06de5cfc21552b72d354692d8b5a434d0347"}
+{"l":"info","t":"2025-08-28 08:58:01.966","c":"log.go:49","m":"REWARD-DEBUG reward time spent:89.792µs"}
+{"l":"info","t":"2025-08-28 08:58:01.966","c":"log.go:49","m":"lastblock:2"}
+{"l":"info","t":"2025-08-28 08:58:01.966","c":"log.go:49","m":"DebugH HashRandom: 2-2 bc38434ae8ca2002a060a7a4eaedbe779feca42befd731af79a0dcb14afa0d28"}
+{"l":"info","t":"2025-08-28 08:58:01.966","c":"log.go:49","m":"----\nwg:63 HIVE2GEq3S9M2hdQi4jSZh3jFws9ka2ZBX1Bawu4e5uzZUt7WKhxEH5 2025-08-28 09:08:02 0\n----"}
+{"l":"info","t":"2025-08-28 08:58:01.966","c":"log.go:49","m":">>>>>> Snapshot[保存] 快照成功,高度:2"}
+{"l":"info","t":"2025-08-28 08:58:01.966","c":"log.go:49","m":">>>>>> Snapshot[诊断] Seq:1, 内存快照+增量快照合并+清空增量快照耗时:363.292µs"}
+{"l":"info","t":"2025-08-28 08:58:02.385","c":"log.go:49","m":"清理swap缓存池 count:0"}

@@ -1,0 +1,603 @@
+{
+	"compiler": {
+		"version": "0.8.19+commit.7dd6d404"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [],
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "owner",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "operator",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "bool",
+						"name": "approved",
+						"type": "bool"
+					}
+				],
+				"name": "ApprovalForAll",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "bytes32",
+						"name": "node",
+						"type": "bytes32"
+					},
+					{
+						"indexed": true,
+						"internalType": "bytes32",
+						"name": "label",
+						"type": "bytes32"
+					},
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "owner",
+						"type": "address"
+					}
+				],
+				"name": "NewOwner",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "bytes32",
+						"name": "node",
+						"type": "bytes32"
+					},
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "resolver",
+						"type": "address"
+					}
+				],
+				"name": "NewResolver",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "bytes32",
+						"name": "node",
+						"type": "bytes32"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint64",
+						"name": "ttl",
+						"type": "uint64"
+					}
+				],
+				"name": "NewTTL",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "bytes32",
+						"name": "node",
+						"type": "bytes32"
+					},
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "owner",
+						"type": "address"
+					}
+				],
+				"name": "Transfer",
+				"type": "event"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "owner",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "operator",
+						"type": "address"
+					}
+				],
+				"name": "isApprovedForAll",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "bytes32",
+						"name": "node",
+						"type": "bytes32"
+					}
+				],
+				"name": "owner",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "bytes32",
+						"name": "node",
+						"type": "bytes32"
+					}
+				],
+				"name": "recordExists",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "bytes32",
+						"name": "node",
+						"type": "bytes32"
+					}
+				],
+				"name": "resolver",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "operator",
+						"type": "address"
+					},
+					{
+						"internalType": "bool",
+						"name": "approved",
+						"type": "bool"
+					}
+				],
+				"name": "setApprovalForAll",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "bytes32",
+						"name": "node",
+						"type": "bytes32"
+					},
+					{
+						"internalType": "address",
+						"name": "owner",
+						"type": "address"
+					}
+				],
+				"name": "setOwner",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "bytes32",
+						"name": "node",
+						"type": "bytes32"
+					},
+					{
+						"internalType": "string",
+						"name": "name",
+						"type": "string"
+					},
+					{
+						"internalType": "address",
+						"name": "owner",
+						"type": "address"
+					}
+				],
+				"name": "setOwnerV1",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "bytes32",
+						"name": "node",
+						"type": "bytes32"
+					},
+					{
+						"internalType": "address",
+						"name": "owner",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "resolver",
+						"type": "address"
+					},
+					{
+						"internalType": "uint64",
+						"name": "ttl",
+						"type": "uint64"
+					}
+				],
+				"name": "setRecord",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "bytes32",
+						"name": "node",
+						"type": "bytes32"
+					},
+					{
+						"internalType": "address",
+						"name": "owner",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "resolver",
+						"type": "address"
+					},
+					{
+						"internalType": "uint64",
+						"name": "ttl",
+						"type": "uint64"
+					},
+					{
+						"internalType": "string",
+						"name": "name",
+						"type": "string"
+					}
+				],
+				"name": "setRecordV1",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "bytes32",
+						"name": "node",
+						"type": "bytes32"
+					},
+					{
+						"internalType": "address",
+						"name": "resolver",
+						"type": "address"
+					}
+				],
+				"name": "setResolver",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "bytes32",
+						"name": "node",
+						"type": "bytes32"
+					},
+					{
+						"internalType": "bytes32",
+						"name": "label",
+						"type": "bytes32"
+					},
+					{
+						"internalType": "address",
+						"name": "owner",
+						"type": "address"
+					}
+				],
+				"name": "setSubnodeOwner",
+				"outputs": [
+					{
+						"internalType": "bytes32",
+						"name": "",
+						"type": "bytes32"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "bytes32",
+						"name": "node",
+						"type": "bytes32"
+					},
+					{
+						"internalType": "bytes32",
+						"name": "label",
+						"type": "bytes32"
+					},
+					{
+						"internalType": "address",
+						"name": "owner",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "resolver",
+						"type": "address"
+					},
+					{
+						"internalType": "uint64",
+						"name": "ttl",
+						"type": "uint64"
+					}
+				],
+				"name": "setSubnodeRecord",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "bytes32",
+						"name": "node",
+						"type": "bytes32"
+					},
+					{
+						"internalType": "uint64",
+						"name": "ttl",
+						"type": "uint64"
+					}
+				],
+				"name": "setTTL",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "bytes32",
+						"name": "node",
+						"type": "bytes32"
+					}
+				],
+				"name": "ttl",
+				"outputs": [
+					{
+						"internalType": "uint64",
+						"name": "",
+						"type": "uint64"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {
+				"constructor": {
+					"details": "Constructs a new ENS registry."
+				},
+				"isApprovedForAll(address,address)": {
+					"details": "Query if an address is an authorized operator for another address.",
+					"params": {
+						"operator": "The address that acts on behalf of the owner.",
+						"owner": "The address that owns the records."
+					},
+					"returns": {
+						"_0": "True if `operator` is an approved operator for `owner`, false otherwise."
+					}
+				},
+				"owner(bytes32)": {
+					"details": "Returns the address that owns the specified node.",
+					"params": {
+						"node": "The specified node."
+					},
+					"returns": {
+						"_0": "address of the owner."
+					}
+				},
+				"recordExists(bytes32)": {
+					"details": "Returns whether a record has been imported to the registry.",
+					"params": {
+						"node": "The specified node."
+					},
+					"returns": {
+						"_0": "Bool if record exists"
+					}
+				},
+				"resolver(bytes32)": {
+					"details": "Returns the address of the resolver for the specified node.",
+					"params": {
+						"node": "The specified node."
+					},
+					"returns": {
+						"_0": "address of the resolver."
+					}
+				},
+				"setApprovalForAll(address,bool)": {
+					"details": "Enable or disable approval for a third party (\"operator\") to manage  all of `msg.sender`'s ENS records. Emits the ApprovalForAll event.",
+					"params": {
+						"approved": "True if the operator is approved, false to revoke approval.",
+						"operator": "Address to add to the set of authorized operators."
+					}
+				},
+				"setOwner(bytes32,address)": {
+					"details": "Transfers ownership of a node to a new address. May only be called by the current owner of the node.",
+					"params": {
+						"node": "The node to transfer ownership of.",
+						"owner": "The address of the new owner."
+					}
+				},
+				"setRecord(bytes32,address,address,uint64)": {
+					"details": "Sets the record for a node.",
+					"params": {
+						"node": "The node to update.",
+						"owner": "The address of the new owner.",
+						"resolver": "The address of the resolver.",
+						"ttl": "The TTL in seconds."
+					}
+				},
+				"setResolver(bytes32,address)": {
+					"details": "Sets the resolver address for the specified node.",
+					"params": {
+						"node": "The node to update.",
+						"resolver": "The address of the resolver."
+					}
+				},
+				"setSubnodeOwner(bytes32,bytes32,address)": {
+					"details": "Transfers ownership of a subnode keccak256(node, label) to a new address. May only be called by the owner of the parent node.",
+					"params": {
+						"label": "The hash of the label specifying the subnode.",
+						"node": "The parent node.",
+						"owner": "The address of the new owner."
+					}
+				},
+				"setSubnodeRecord(bytes32,bytes32,address,address,uint64)": {
+					"details": "Sets the record for a subnode.",
+					"params": {
+						"label": "The hash of the label specifying the subnode.",
+						"node": "The parent node.",
+						"owner": "The address of the new owner.",
+						"resolver": "The address of the resolver.",
+						"ttl": "The TTL in seconds."
+					}
+				},
+				"setTTL(bytes32,uint64)": {
+					"details": "Sets the TTL for the specified node.",
+					"params": {
+						"node": "The node to update.",
+						"ttl": "The TTL in seconds."
+					}
+				},
+				"ttl(bytes32)": {
+					"details": "Returns the TTL of a node, and any records associated with it.",
+					"params": {
+						"node": "The specified node."
+					},
+					"returns": {
+						"_0": "ttl of the node."
+					}
+				}
+			},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {
+				"recordExists(bytes32)": {
+					"notice": "验证解析是否存在"
+				},
+				"setSubnodeOwner(bytes32,bytes32,address)": {
+					"notice": "域名注册 转让 "
+				},
+				"setSubnodeRecord(bytes32,bytes32,address,address,uint64)": {
+					"notice": "绑定"
+				},
+				"ttl(bytes32)": {
+					"notice": "设置时间"
+				}
+			},
+			"notice": "The ENS registry contract.",
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"registry/ENSRegistry.sol": "ENSRegistry"
+		},
+		"evmVersion": "paris",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"registry/ENS.sol": {
+			"keccak256": "0xef3bbc811d79f205f6e6b10a108a5a32d571fd5b368f417284f815b70893feef",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://3e1cb4e8012a9f2fb9c4e5d381645a8c91041a1413af096436492af38cff906d",
+				"dweb:/ipfs/QmYAp2kpWPepsHLrWD5q7x2hLKaHe6siXiofjPhpSqjVUD"
+			]
+		},
+		"registry/ENSRegistry.sol": {
+			"keccak256": "0x3e61eb2444409b24e752fc4e6076cfa92fef274bf6f7c613361a67a868952a44",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://a7df2ee586be0b48f1c1ce80a7a589634ac838de285479a64fde74a94848ba3a",
+				"dweb:/ipfs/QmY6q3YHKn8StKQeEkVvharR4APtbx1ZKx3KzMpFRuGTcb"
+			]
+		}
+	},
+	"version": 1
+}

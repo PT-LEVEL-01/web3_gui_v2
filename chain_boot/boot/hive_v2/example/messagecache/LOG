@@ -1,0 +1,6 @@
+=============== Aug 28, 2025 (WIB) ===============
+08:57:34.301246 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+08:57:34.313276 db@open opening
+08:57:34.314252 version@stat F·[] S·0B[] Sc·[]
+08:57:34.318257 db@janitor F·2 G·0
+08:57:34.318271 db@open done T·4.972ms

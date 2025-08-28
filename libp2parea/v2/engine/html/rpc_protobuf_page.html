@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<!--<script src="https://cdn.jsdelivr.net/npm/protobufjs@6.8.0/dist/protobuf.min.js"></script>-->
+<script src="google-protobuf.js"></script>
+<script src="protobuf.min.js"></script>
+<script src="require.js"></script>
+<script src="packet_v2_pb.js"></script>
+<body>
+<script>
+    // 定义你的.proto文件内容
+    var packet_proto = `
+package awesomepackage;
+syntax = "proto3";
+
+message AwesomeMessage {
+    string awesome_field = 1; // 变为 awesomeField
+}
+    `;
+    // 使用protobuf.load加载.proto文件
+    // protobuf.load("./packet_v2.proto", function(err, root) {
+    // protobuf.load("./packet_v2.proto", function(err, root){
+    //     if (err)
+    //         throw err;
+    //     // 获取消息类型
+    //     var AwesomeMessage = root.lookupType("awesomepackage.AwesomeMessage");
+    //     // 获取定义的消息类型
+    //     // var PacketV2 = root.lookupType("PacketV2");
+    //
+    //     // 创建一个新的消息对象
+    //     // var message = PacketV2.create({ MsgID: 1, Data: "Hello, Protobuf!" });
+    //
+    //     // 验证消息
+    //     // const errMsg = PacketV2.verify(message);
+    //     // if (errMsg) throw Error(errMsg);
+    //
+    //     // 编码成为protobuf
+    //     // var buffer = PacketV2.encode(message).finish();
+    //
+    //     // 反序列化protobuf为对象
+    //     // var decodedMessage = PacketV2.decode(buffer);
+    //
+    //     console.log(decodedMessage);
+    // });
+    //
+    // var port = location.port;
+    // console.log("当前页面的端口是：" + port);
+    // port = 8080
+    // const ws = new WebSocket('ws://localhost:'+port+'/rpc/websocket')
+    // ws.addEventListener('open',()=> {
+    //     console.log('已连接服务器')
+    //     ws.send('我是前端的数据')
+    // })
+    // ws.addEventListener('message', ({data})=> {
+    //     console.log(data)
+    // })
+</script>
+</body>
+</html>

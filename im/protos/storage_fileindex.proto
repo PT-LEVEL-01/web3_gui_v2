@@ -1,0 +1,38 @@
+//指定版本
+//注意proto3与proto2的写法有些不同
+//protobuf官方中文文档
+//https://www.jianshu.com/p/4443c28d4bf7
+syntax = "proto3";
+
+//包名，通过protoc生成时go文件时
+package go_protos;
+
+option go_package = "./go_protos";
+
+message StorageDownloadStep {
+  bytes               DBID           =1;  //数据库id
+  bytes               ServerAddr     =2;  //服务器地址
+  StorageFileIndex    FileIndex      =3;  //
+  string              LocalPath      =4;  //
+  uint32              Status         =5;  //
+  int64               CreateTime     =6;  //创建时间
+  int64               FinishTime     =7;  //下载完成时间
+}
+
+message StorageFileIndex {
+  bytes             ID                      =1;  //文件加密后的hash值
+  bytes             Hash                    =2;  //文件加密后的hash值
+  repeated  bytes   DirID                   =3;  //所属文件夹ID
+  repeated  bytes   UserAddr                =4;  //所属用户地址
+  repeated  bytes   Pwds                    =5;  //所属用户密码
+  uint32            Version                 =6;  //版本号
+  repeated  string  Name                    =7;  //多用户不同文件名称
+  uint64            FileSize                =8;  //文件总大小
+  uint32            ChunkCount              =9;  //分片总量
+  uint64            ChunkOneSize            =10;  //每一个分片大小
+  repeated  bytes   Chunks                  =11;  //每一个分片ID
+  repeated  bytes   PullIDs                 =12;  //每个分片文件下载者ID
+  repeated  uint32  PermissionType          =13;  //权限类型 0=仅自己可访问;1=仅自己授权者可访问;2=所有人可访问;
+  repeated  int64   Time                    =14;  //创建时间
+}
+

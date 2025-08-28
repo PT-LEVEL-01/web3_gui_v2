@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>errors desc list</title>
+</head>
+<body>
+<button onclick="location.href='/'">首页</button>
+<!--<table>-->
+<!--    <thead>-->
+<!--    <tr>-->
+<!--        <th>错误编号</th>-->
+<!--        <th>错误描述</th>-->
+<!--    </tr>-->
+<!--    </thead>-->
+<!--    <tbody>-->
+<!--    <tr>-->
+<!--        <td>60000</td>-->
+<!--        <td>是</td>-->
+<!--    </tr>-->
+<!--    </tbody>-->
+<!--</table>-->
+</body>
+</html>
+<script type="text/javascript">
+    const bodyParams = {
+        method: 'errors_desc',
+    }
+    const headJson = {
+        method: 'POST',
+        body: JSON.stringify(bodyParams),
+    };
+    fetch('/rpc/json', headJson)
+        .then(response => response.json())
+        .then(data => {
+            console.log(data)
+            var paramsInnerHTML = "<table>\n" +
+                "            <thead>\n" +
+                "            <tr>\n" +
+                "                <th>错误编号</th>\n" +
+                "                <th>错误描述</th>\n" +
+                "            </tr>\n" +
+                "            </thead>\n" +
+                "            <tbody>"
+            for(var i=0; i<data.Data.list.length; i++){
+                var rpcOne = data.Data.list[i]
+                paramsInnerHTML += "<tr>\n" +
+                    "                <td>"+rpcOne.Code+"</td>\n" +
+                    "                <td>"+rpcOne.Desc+"</td>\n" +
+                    "            </tr>"
+            }
+            paramsInnerHTML += "</tbody>\n" +
+                "        </table>"
+            var newElement = document.createElement("div");
+            newElement.innerHTML = paramsInnerHTML;
+            document.body.appendChild(newElement)
+        })
+        .catch(error => console.error('error', error));
+
+
+</script>

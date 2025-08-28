@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>rpc websocket</title>
+</head>
+<body>
+<button onclick="location.href='/'">首页</button>
+<div>用户名:<input type="text"/></div>
+<div>密码:<input type="password"/></div>
+<div>参数:
+    <textarea name="textareaName" rows="4" cols="30"></textarea></div>
+</body>
+</html>
+<script type="text/javascript">
+    var port = location.port;
+    location.host
+    console.log(location.host, location.hostname, location.port)
+    const socket = new WebSocket('ws://'+location.host+'/rpc/websocket');
+
+    // 监听连接建立事件
+    socket.onopen = function() {
+        console.log('WebSocket连接已建立');
+
+        // 向服务器发送消息
+        socket.send('Hello Server!');
+
+        // 创建一个ArrayBuffer，例如长度为10字节
+        const buffer = new ArrayBuffer(10);
+        // 创建一个Uint8Array视图来操作buffer
+        const dataView = new Uint8Array(buffer);
+        // 填充数据，例如填充数字1到10
+        for (let i = 0; i < 10; i++) {
+            dataView[i] = i + 1;
+        }
+        // 发送ArrayBuffer
+        socket.send(buffer);
+
+        // 创建一个Blob对象，例如创建一个包含文本"Hello"的Blob对象
+        const blob = new Blob(["Hello"], {type: "text/plain"});
+        // 发送Blob
+        socket.send(blob);
+
+    };
+
+    // 监听接收到消息事件
+    socket.onmessage = function(event) {
+        const message = event.data;
+        console.log('接收到服务器消息：' + message);
+    };
+
+    // 监听连接关闭事件
+    socket.onclose = function() {
+        console.log('WebSocket连接已关闭');
+    };
+
+</script>

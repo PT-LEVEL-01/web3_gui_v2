@@ -1,0 +1,216 @@
+//指定版本
+//注意proto3与proto2的写法有些不同
+//protobuf官方中文文档
+//https://www.jianshu.com/p/4443c28d4bf7
+syntax = "proto3";
+
+//包名，通过protoc生成时go文件时
+package go_protos;
+
+option go_package = "./go_protos";
+
+message SnapshotChain {
+	uint64   No            =1;  //分叉编号
+	uint64   StartingBlock            =2;  //区块开始高度
+	uint64 StartBlockTime =3;//起始区块时间
+	uint64 CurrentBlock =4;//内存中已经同步到的区块高度
+	uint64 PulledStates =5; //正在同步的区块高度
+	uint64 HighestBlock =6;//网络节点广播的区块最高高度
+	bool SyncBlockFinish=7;//同步区块是否完成，关系能否接收新的区块
+	SnapshotWitnessBackup WitnessBackup=8;//备用见证人
+	SnapshotWitnessChain	WitnessChain=9;       //见证人组链
+	SnapshotBalanceManager Balance=10;
+//			transactionManager *TransactionManager //交易管理器
+	// history            *BalanceHistory     //
+	uint32	StopSyncBlock=11;        //当区块分叉或出现重大错误时候，终止同步功能。初始值为0,1=暂停
+	//BlockHeadAndTxs		Temp =11; //收到的区块高度最大的区块
+//	uint64 GroupHeight =12; //最新导入区块的组高度
+	bytes CurrentBlockHash =13;//已经统计的最新高度区块hash
+}
+
+message SnapshotWitnessBackup{
+	repeated BackupWitness Witnesses =1;       //
+	map<string,BackupWitness> WitnessesMap=2;      //key:string=候选见证人地址;value:*BackupWitness=备用见证人;
+	map<string,VoteScoreArr>	VoteCommunity=3;        //保存所有社区节点。key:string=候选见证人地址;value:*[]*VoteScore=投票人和押金;
+	map<string,VoteScore> VoteCommunityList =4;         //保存所有社区节点。key:string=投票者地址;value:*VoteScore=投票人和押金;
+	map<string,VoteScoreArr>	Vote     =5;        //投票押金 key:string=社区节点地址;value:*[]*VoteScore=投票人和押金;注意：投票押金要和见证人分开，因为区块回滚的时候，恢复见证人就不方便恢复投票押金。
+	map<string,VoteScore>	VoteList     =6;         //投票押金 key:string=投票人地址;value:*VoteScore=投票人和押金;
+	map<string,VoteScore>	LightNode      =7;       //轻节点押金 key:string=投票人地址;value:*VoteScore=投票人和押金;
+	map<string,uint64> Blacklist=8;	      //黑名单。记录见证人连续未出块次数，超过3次提出候选见证人排序。解除黑名单需要退还押金，重新缴押金。
+}
+
+message BackupWitness{
+	bytes Addr =1;//见证人地址
+	bytes Puk  =2;             //见证人公钥
+	uint64	Score  =3;             //评分
+	uint64	VoteNum =4;              //投票押金总和
+}
+
+message VoteScoreArr{
+	repeated VoteScore VoteScoreArr =1;
+}
+
+message VoteScore{
+	bytes Witness =1; //见证人地址。当自己是轻节点的时候，此字段是社区节点地址
+	bytes Addr =2; //投票人地址
+	uint64 Scores =3;         //押金
+	uint64 Vote    =4;              //获得票数
+}
+
+message SnapshotBalanceManager{
+	uint64 CountTotal =1;
+	//BlockHeadAndTxs		SyncBlockHead = 2; //正在同步的余额，准备导入到余额中
+	TxItem		NodeWitness  =2;             //保存本节点见证人信息
+	map<string,uint64>		WitnessVote = 3; //见证人票数 key：string=见证人地址；value：见证人票数
+	map<string,DepositInfo>		DepositCommunity=4;            //社区节点押金 key:string=社区节点地址;value:*TxItem=押金额;
+	map<string,DepositInfo>	DepositLight   =5;          //轻节点押金 key:string=轻节点地址;value:*TxItem=押金额;
+	map<string,DepositInfo>		DepositVote     =6;         //保存本节点给社区节点投票的额度，key:string=轻节点地址;value:*TxItem=押金列表;
+	map<string,uint64>		CommunityVote  =7;           //保存社区节点获得总的投票数，key:string=社区节点地址;value:uint64=投票数量;
+	SnapshotWitnessBackup WitnessBackup   =8;      //
+		//	txManager        *TransactionManager //
+		//	otherDeposit     *sync.Map           //其他押金，key:uint64=交易类型;value:*sync.Map=押金列表;
+
+	map<string,uint64>		AddBlockNum =9;           // 节点出块数  key:string 节点地址; value:uint64
+	map<string,uint64>		AddBlockReward =10;           // 节点出块奖励  key:string 节点地址; value:uint64
+	map<string,uint64>		BlockIndex =11;           // 出块记录索引
+	// cacheTxLockLock *sync.RWMutex
+	// cacheTxlock     []*TxItr
+	//		cacheTxlock  *sync.Map //key:string=转出地址;value:*TxList=;
+		//	eventBus     event.EventBus
+	map<string,uint64>		WitnessRatio =12; //见证人比例 key：string=见证人地址；value：uint16
+	uint64 LastDistributeHeight = 13;     //记录上一次发奖励高度
+	map<string,bytes> WitnessRewardPool = 14; //见证人奖励池
+	map<string,bytes> CommunityRewardPool = 15; //社区奖励池,包含该社区下的轻节点奖励
+	map<string,bytes> NameNetRewardPool = 16; //链上域名奖励池,包含该基金会,投资人
+	map<string,Addresses> WitnessMapCommunitys = 17; //见证人与社区的关系映射
+	map<string,Addresses> CommunityMapLights = 18;//社区与轻节点的关系映射
+	TxAveGas TxAveGas = 19; //全网平均Gas
+	map<string,uint64> LastVoteOp = 20; //上次投票操作高度
+	map<string,DepositInfo>		DepositWitness =22;            //见证人节点押金 key:string=社区节点地址;value:*TxItem=押金额;
+	map<string,bytes> AddrReward = 23; //该地址的累计奖励
+	//	otherDeposit     *sync.Map           //其他押金，key:uint64=交易类型;value:*sync.Map=押金列表;
+	map<int64,bytes> otherDeposit =24;//这是一个sync.Map sync.Map嵌套的结构
+	map<string,DepositFreeGas> DepositFreeGas =25;//质押免gas费地址
+}
+
+message Addresses {
+	repeated bytes Addresses = 1;
+}
+
+// 交易平均Gas
+message TxAveGas {
+	repeated uint64 AllGas = 1;
+	uint64 Index = 2;
+}
+
+//质押免gas费地址
+message DepositFreeGas {
+	bytes owner = 1;//拥有者
+	bytes contract_addresses = 2;//合约地址
+	uint64 deposit = 3;//质押金额
+	uint64 limit_height = 4;//限制高度
+	uint64 limit_count = 5;//限制次数
+}
+
+message TxItem{
+	bytes Addr =1;// //收款地址
+	uint64 		Value =2;              //余额
+	uint64 VoteType =3; //投票类型
+	uint64	LockupHeight=4;  //锁仓高度/锁仓时间
+	string Name = 5; //见证人名字
+}
+
+message DepositInfo{
+	bytes WitnessAddr =1; //见证人/社区节点地址
+	bytes 		SelfAddr =2; //轻节点/社区节点地址
+	uint64 	Value       =3;             //押金或投票金额
+	string	Name      =4;               //节点名称（见证人或者社区节点）
+	uint64 Height = 5;//质押高度
+}
+
+
+message SnapshotWitnessChain{
+	// 未分配见证人
+	repeated SnapshotWitness WitnessNotGroup =1;
+	// 所有未分配见证人
+	map<string,SnapshotWitness> AllWitnessNotGroup =2;
+	// 未分配见证人大组
+	SnapshotWitnessBigGroup BigGroupNotGroup =3;
+	repeated SnapshotWitnessBigGroup BigGroup =4;
+	repeated SnapshotWitnessSmallGroup SmallGroup =5;
+	repeated SnapshotGroup Group =6;
+	repeated SnapshotWitness Witness =7;
+	repeated SnapshotBlock Block =8;
+	int32	CurrentSmallGroupIndex  =9; //记录快照当前指针位置(当前小组)
+}
+
+// 大组
+message SnapshotWitnessBigGroup{
+	//uint64 Key =1;// 唯一键, 块高度
+	repeated SnapshotWitness Witnesses =1;//见证人
+	repeated SnapshotWitness WitnessBackup =2;//备用见证人
+	repeated string Keys=3;// 见证人键集,标明有那些见证人是同一个大组
+}
+
+// 小组
+// =WitnessSmallGroup
+message SnapshotWitnessSmallGroup {
+	//uint64 Key =1;// 唯一键, 块高度
+	bool	Task =1;  //是否已经定时出块
+	//PreGroup     *SnapshotWitnessSmallGroup //上一个组
+	//NextGroup    *SnapshotWitnessSmallGroup //下一个组
+	uint64	Height =2;               //见证人组高度
+	repeated SnapshotWitness	Witness=3; //本组见证人列表
+	SnapshotGroup BlockGroup=4; //构建出来的合法区块组，为空则是没有合法组
+	bool	IsBuildGroup =5; //是否已经构建这个组
+	bool	Tag =6; //备用见证人队列标记，一次从备用见证人评选出来的备用见证人为一个队列标记，需要保证备用见证人组中有两个队列
+	bool	IsCount  =7; //是否已经统计本组合法区块中的交易。
+	// check      bool          //这个见证人组是否多半人出块，多半人出块则合法有效
+	//CollationLock *sync.Mutex `json:"-",copier:"-"` //整理关系锁
+}
+
+// 组
+// =Group
+message SnapshotGroup{
+	//uint64 Key=1;// 唯一键, 块高度
+	//PreGroup  *SnapshotGroup   //前置组
+	//NextGroup *SnapshotGroup   //下一个组，有分叉，下标为0的是最长链
+	uint64	Height=1;            //组高度
+	repeated SnapshotBlock	Blocks=2; //组中的区块
+}
+
+// 见证人
+message SnapshotWitness{
+	bytes Addr=1;//见证人地址
+	bytes Puk=2;              //见证人公钥
+	SnapshotBlock	Block=3;      //见证人生产的块
+	uint64 Score=4;      //见证人自己的押金
+	repeated VoteScore CommunityVotes=5; //社区节点投票
+	repeated VoteScore	Votes=6; //轻节点投票和押金
+	uint64	VoteNum=7;       //投票数量
+	uint64	BlockHeight=8;      //预计出块高度
+	int64 	CreateBlockTime=9;  //预计出块时间
+	SnapshotWitnessBigGroup WitnessBigGroup=10;//候选见证人组，属于哪个大组
+	bool	CheckIsMining=11;  //检查是否已经验证出块标记，用于多次未出块的见证人，踢出列表
+	bool 	SignExist=12;      //是否已经给这个见证人签名了
+	int64 	CreateTime =13; //
+	int64	SleepTime=14;       //等待时间
+	uint64 SmallGroupHeight=15; //小组高度
+	// 临时存见证人指针地址,恢复未分配的见证人可能会使用到
+	string PtrAddr=16;
+}
+
+// 块
+// =Block
+message SnapshotBlock{
+	bytes  Id=1; //区块id
+	bytes PreBlockID=2; //前置区块id
+//PreBlock   *SnapshotBlock   //前置区块高度
+//NextBlock  *SnapshotBlock   //下一个区块高度
+// Group   *SnapshotGroup   //所属组
+	uint64		Height=3;  //区块高度
+//Witness *SnapshotWitness //是哪个见证人出的块
+	bool	IsCount=4;  //是否被统计过了
+// IdStr      string   //
+// LocalTime time.Time //
+}

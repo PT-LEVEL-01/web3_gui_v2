@@ -1,0 +1,26 @@
+//指定版本
+//注意proto3与proto2的写法有些不同
+//protobuf官方中文文档
+//https://www.jianshu.com/p/4443c28d4bf7
+syntax = "proto3";
+
+//包名，通过protoc生成时go文件时
+package go_protos;
+
+option go_package = "./go_protos";
+
+message FileTransferTask {
+  uint64    ClassID         =1;  //文件传输单元
+  bytes     SupplierID      =2;  //提供者ID
+  bytes     PullID          =3;  //文件下载者ID
+  string    RemoteFilePath  =4;  //请求下载的文件
+  string    LocalFilePath   =5;  //本地文件路径
+  int64     CreateTime      =6;  //创建时间
+  int64     OverTime        =7;  //超时时间
+  bytes     ID              =8;  //文件加密后的hash值
+  uint64    Version         =9;  //版本号
+  string    Name            =10;  //真实文件名称
+  uint64    FileSize        =11;  //文件总大小
+  bytes     RemoteAddr      =12;  //远端地址
+  uint64    OffsetIndex     =13;  //块起始位置偏移量
+}
