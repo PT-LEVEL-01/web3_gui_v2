@@ -1,5 +1,3 @@
-Berikut adalah analisis, terjemahan ke Bahasa Indonesia, dan langkah-langkah detail dari file note1.md:
-
 Analisis
 File ini berisi panduan teknis untuk:
 
